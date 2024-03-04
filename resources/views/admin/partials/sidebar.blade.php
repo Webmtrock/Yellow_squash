@@ -1,10 +1,10 @@
  <!-- Start::app-sidebar -->
-        <aside class="app-sidebar sticky" id="sidebar">
+ <aside class="app-sidebar sticky" id="sidebar">
 
-            <!-- Start::main-sidebar-header -->
-            <div class="main-sidebar-header">
-                <a href="index.html" class="header-logo">
-                    <img src="{{ asset('admin/assets/images/brand-logos/logo.png') }}" class="header-brand-img" alt="">
+    <!-- Start::main-sidebar-header -->
+    <div class="main-sidebar-header">
+        <a href="index.html" class="header-logo">
+            <img src="{{ asset('admin/assets/images/brand-logos/logo.png') }}" class="header-brand-img" alt="">
                     <!-- <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" class="desktop-logo">
                     <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
                     <img src="../assets/images/brand-logos/desktop-white.png" alt="logo" class="desktop-dark">
@@ -16,7 +16,7 @@
             
             <div class="main-sidebar" id="sidebar-scroll">
 
-              
+
                 <nav class="main-menu-container nav nav-pills flex-column sub-open">
                     <div class="slide-left" id="slide-left">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
@@ -24,12 +24,17 @@
                         </svg>
                     </div>
                     <ul class="main-menu">
-                        
+
                         <li class="slide__category"><span class="category-name">Main</span></li>
                         <li class="slide">
-                            <a href="/dashboard" class="side-menu__item">
+                            <a href="/admin/dashboard" class="side-menu__item">
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Dashboard</span>
+                            </a>
+                            <li class="slide__category"><span class="category-name">Users Management</span></li>
+                            <a href="/admin/users" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Users</span>
                             </a>
                         </li>
                         <!-- <li class="slide__category"><span class="category-name">Logout</span></li>
@@ -50,7 +55,7 @@
                             @csrf
                         </form>
 
-                       
+
                        <!--  <li class="slide__category"><span class="category-name">General</span></li>
                        
                         <li class="slide has-sub">
@@ -635,7 +640,7 @@
                                 </li> -->
                             </ul>
                         </li>
-                       
+
                         <!-- <li class="slide">
                             <a href="icons.html" class="side-menu__item">
                                 <i class="fe fe-command side-menu__icon"></i>
@@ -645,9 +650,9 @@
                         
                     </ul>
                     <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
-                            height="24" viewBox="0 0 24 24">
-                            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-                        </svg></div>
+                        height="24" viewBox="0 0 24 24">
+                        <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                    </svg></div>
                 </nav>
                 
 
@@ -655,4 +660,3 @@
             
 
         </aside>
-       

@@ -10,5 +10,5 @@
                     reserved
                 </span>
             </div>
-        
+        </footer>
         <!-- Footer End -->
