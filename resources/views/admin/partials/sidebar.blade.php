@@ -32,13 +32,15 @@
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                         </li>
-                        <!-- <li class="slide__category"><span class="category-name">Logout</span></li>
-                        <li class="slide">
-                            <a href="widgets.html" class="side-menu__item">
-                                <i class="fe fe-grid side-menu__icon"></i>
-                                <span class="side-menu__label">Logout</span>
-                            </a>
-                        </li> -->
+                       <!-- <li class="slide__category"><span class="category-name">Logout</span></li> -->
+                       <li class="slide">
+    <a href="{{ route('expert.index') }}" class="side-menu__item">
+        <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+        <i class="bi bi-file-person-fill"></i>
+        <span class="side-menu__label">Expert</span>
+    </a>
+</li>
+
                         <li class="slide__category"><span class="category-name">Logout</span></li>
                         <li class="slide">
                             <a href="{{ route('admin/logout') }}" class="side-menu__item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
