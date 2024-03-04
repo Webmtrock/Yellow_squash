@@ -14,6 +14,7 @@
          </a>
      </div>
 
+<<<<<<< HEAD
      <div class="main-sidebar" id="sidebar-scroll">
 
 
@@ -64,6 +65,43 @@
                  <form id="logout-form" action="{{ route('admin/logout') }}" method="POST" style="display: none;">
                      @csrf
                  </form>
+=======
+              
+                <nav class="main-menu-container nav nav-pills flex-column sub-open">
+                    <div class="slide-left" id="slide-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                        </svg>
+                    </div>
+                    <ul class="main-menu">
+                        
+                        <li class="slide__category"><span class="category-name">Main</span></li>
+                        <li class="slide">
+                            <a href="/dashboard" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Dashboard</span>
+                            </a>
+                        </li>
+                       <!-- <li class="slide__category"><span class="category-name">Logout</span></li> -->
+                       <li class="slide">
+    <a href="{{ route('expert.index') }}" class="side-menu__item">
+        <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+        <i class="bi bi-file-person-fill"></i>
+        <span class="side-menu__label">Expert</span>
+    </a>
+</li>
+
+                        <li class="slide__category"><span class="category-name">Logout</span></li>
+                        <li class="slide">
+                            <a href="{{ route('admin/logout') }}" class="side-menu__item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fe fe-grid side-menu__icon"></i>
+                                <span class="side-menu__label">Logout</span>
+                            </a>
+                        </li>
+                        <form id="logout-form" action="{{ route('admin/logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+>>>>>>> origin/main
 
 
                  <!--  <li class="slide__category"><span class="category-name">General</span></li>
