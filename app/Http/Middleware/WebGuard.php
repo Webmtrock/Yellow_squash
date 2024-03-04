@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Spatie\Permission\Middlewares\RoleMiddleware;
 use Closure;
 use Illuminate\Http\Request;
 
