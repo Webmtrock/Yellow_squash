@@ -2,12 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminLoginController;
-<<<<<<< HEAD
-use App\Http\Controllers\RolesController;
-use App\Http\Controllers\PermissionsController;
-=======
-use App\Http\Controllers\ExpertController;
->>>>>>> origin/main
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,16 +26,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
-<<<<<<< HEAD
     
-=======
-
-    //expert 
-    Route::resource('/expert', ExpertController::class);
-
 });
->>>>>>> origin/main
 
-});
+
     Route::resource('roles', RolesController::class);
-    Route::resource('permissions', PermissionsController::class);
+    Route::resource('permissions', PermissionsController::class); 

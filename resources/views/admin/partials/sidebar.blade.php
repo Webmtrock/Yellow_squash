@@ -83,13 +83,13 @@
                             </a>
                         </li>
                        <!-- <li class="slide__category"><span class="category-name">Logout</span></li> -->
-                       <li class="slide">
+                       <!-- <li class="slide">
     <a href="{{ route('expert.index') }}" class="side-menu__item">
-        <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+        
         <i class="bi bi-file-person-fill"></i>
         <span class="side-menu__label">Expert</span>
     </a>
-</li>
+</li> -->
 
                         <li class="slide__category"><span class="category-name">Logout</span></li>
                         <li class="slide">
