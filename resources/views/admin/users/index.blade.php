@@ -1,64 +1,3 @@
-<!-- @extends('layouts.app')
-@section('content') -->
-
-<!-- <div class="content-wrapper" style="text-align: center;">
-    <h1>Users
-        <a href="{{ route('users.create') }}" class="btn btn-primary btn-lg float-left">Add User</a>
-    </h1>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"></h3>
-                        </div>
-
-                        <div class="card-body">
-                            <table id="myTable" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($users as $user)
-                                    <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>
-                                            <span class="{{ $user->status == '1' ? 'badge badge-success' : 'badge badge-danger' }}">
-                                                {{ $user->status == '1' ? 'Active' : 'Inactive' }}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('users.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('users.delete', ['id' => $user->id]) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $user->id }}">Delete</a>
-
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                <tfoot>
-                                    
-                                </tfoot>
-                            </table>
-                        </div>
-                        `
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Your Modal -->
 @extends('layouts.app')
 @section('content')
 @if(Session::has('success'))
@@ -201,9 +140,6 @@
 
 @endsection
 @foreach ($users as $user)
-<!-- Delete Button -->
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

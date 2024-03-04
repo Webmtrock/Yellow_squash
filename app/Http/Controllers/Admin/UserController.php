@@ -30,10 +30,8 @@ public function saveUser(Request $request, $id = null)
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255|unique:users,email',
         'phone' => 'required|string|max:20',
-        'status' => 'required|in:0,1', 
-
+        'status' => 'nullable', // Assuming 'status' can be nullable
     ];
-
 
     if ($id !== null) {
         $rules['email'] .= ',' . $id;
@@ -45,30 +43,35 @@ public function saveUser(Request $request, $id = null)
     $user->name = $request->name;
     $user->email = $request->email;
     $user->phone = $request->phone;
-     $user->status = $request->status; 
 
-            $user->save();
+    // Check if 'status' exists in the request and is not null
+    if ($request->has('status')) {
+        $user->status = $request->status;
+    }
 
-            $message = $id ? 'User Updated successfully' : 'User Added successfully';
+    $user->save();
 
-            return redirect()->route('users.index')->with('success', $message);
-        }
+    $message = $id ? 'User Updated successfully' : 'User Added successfully';
 
-        public function edit($id)
-        {
-            $user = User::findOrFail($id);
-            return view('admin.users.update', compact('user'));
-        }
+    return redirect()->route('users.index')->with('success', $message);
+}
 
-        public function store(Request $request)
-        {
-            return $this->saveUser($request);
-        }
+public function edit($id)
+{
+    $user = User::findOrFail($id);
+    return view('admin.users.update', compact('user'));
+}
 
-        public function update(Request $request, $id)
-        {
-            return $this->saveUser($request, $id);
-        }
+public function store(Request $request)
+{
+    return $this->saveUser($request);
+}
+
+public function update(Request $request, $id)
+{
+    return $this->saveUser($request, $id);
+}
+
 
         public function delete($id)
         {

@@ -46,7 +46,7 @@
                     </span>
                     @enderror
                 </div>
-                <input type="submit" name="submit" value="Submit" class="btn btn-success">
+                <input type="submit" value="Submit" class="btn btn-success">
 
             </form>
         </div>
