@@ -31,8 +31,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
    
 });
- 
- 
-    Route::resource('/expert', ExpertController::class);
+Route::resource('/expert', ExpertController::class);
+Route::post('/expert/create', [ExpertController::class, 'store'])->name('expert.store');
+Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
+Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
+// Route::put('/experts/{expert}', 'ExpertController@update')->name('experts.update');
+Route::delete('expert/{id}/delete', 'ExpertController@destroy')->name('expert.destroy');
+
+
+  
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
