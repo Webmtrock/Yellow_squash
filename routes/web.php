@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/expert', ExpertController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
+
+    
