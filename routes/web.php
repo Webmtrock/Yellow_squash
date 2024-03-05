@@ -1,13 +1,11 @@
 <?php
-
+ 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminLoginController;
-<<<<<<< HEAD
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PermissionsController;
-=======
 use App\Http\Controllers\ExpertController;
->>>>>>> origin/main
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +16,12 @@ use App\Http\Controllers\ExpertController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
     return view('welcome');
 });
-
-
+ 
+ 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
@@ -31,16 +29,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
-<<<<<<< HEAD
-    
-=======
-
-    //expert 
+   
+});
+ 
+ 
     Route::resource('/expert', ExpertController::class);
-
-});
->>>>>>> origin/main
-
-});
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
