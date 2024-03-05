@@ -40,6 +40,8 @@
     <!-- Your Favicon -->
     <link rel="icon" href="{{ asset('admin/assets/images/brand-logos/favicon.ico') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,13 +52,14 @@
                 @include('admin.partials.sidebar')
             </div>
             <div class="col-md-9">
+                <div class="mb-10">
                 @yield('content')
             </div>
         </div>
         @include('admin.partials.footer')
     </div>
     <!-- Popper JS -->
-    <script src="lib{{ asset('admin/assets/s/choices.js/public/assets/scripts/choices.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/choices.js/public/assets/scripts/choices.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -74,6 +77,10 @@
 
     <!-- Include Select2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(function() {
         $('.select2').select2();

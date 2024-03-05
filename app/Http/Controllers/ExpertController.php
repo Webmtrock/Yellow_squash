@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+
 
 class ExpertController extends Controller
 {
@@ -13,8 +15,9 @@ class ExpertController extends Controller
      */
     public function index()
     {
-       
-       return view('expert.index');
+        
+         
+
     }
 
     /**
@@ -24,7 +27,8 @@ class ExpertController extends Controller
      */
     public function create()
     {
-        return view('expert.create');
+         $categories = Category::all();
+        return view('expert.create',compact('categories'));
     }
 
     /**
