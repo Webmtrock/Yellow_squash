@@ -8,8 +8,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-
-
 class UserController extends Controller
 {
 
@@ -30,7 +28,10 @@ public function saveUser(Request $request, $id = null)
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255|unique:users,email',
         'phone' => 'required|string|max:20',
+
         'status' => 'nullable', // Assuming 'status' can be nullable
+
+
     ];
 
     if ($id !== null) {
@@ -73,6 +74,7 @@ public function update(Request $request, $id)
 }
 
 
+
         public function delete($id)
         {
             $user = User::findOrFail($id);
@@ -85,3 +87,14 @@ public function update(Request $request, $id)
 
 
     }
+
+public function delete($id)
+{
+    $user = User::findOrFail($id);
+    $user->delete();
+    return redirect()->route('users.index')->with('success', 'User Deleted successfully');
+}
+
+
+}
+

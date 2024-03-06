@@ -41,6 +41,7 @@
                                     <option value="customer" {{ isset($role) ? ($role == "customer" ? 'selected' : '' ) : '' }}>Customer</option>
                                 </select>
                             </div>
+
                             <div class="p-0 mx-1">
                                 <select class="form-control" id="status" name="status">
                                     <option value="">Select Status</option>
@@ -51,9 +52,13 @@
 
                             <!-- <form action="" method="GET" class="d-flex">
                                 <input type="text" name="keyword" id="keyword" class="form-control" value="{{ isset($keyword) ? $keyword : '' }}" placeholder="Search" required>
+
+
                                 <button class="btn-sm search-btn keyword-btn" type="submit">
                                     <i class="ti-search pl-3" aria-hidden="true"></i>
                                 </button>
+
+
                                 <a href="" class="btn-sm reload-btn">
                                     <i class="ti-reload pl-3 redirect-icon" aria-hidden="true"></i>
                                 </a>
@@ -121,7 +126,9 @@
                                         </tr>
                                     @endforeach
 
+                              
                             </table>
+                            
 
                         </div>
                     </div>
@@ -158,3 +165,4 @@
     </div>
 </div>
 @endforeach
+
