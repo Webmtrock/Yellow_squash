@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,21 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
 
-});
+
+
+
+  // Categories
+
+
+   Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+   Route::get('/categories/create', [CategoriesController::class, 'create'])->name('categories.create');
+   Route::post('/categories/store', [CategoriesController::class, 'store'])->name('categories.store');
+   Route::get('/categories/edit/{id}', [CategoriesController::class, 'edit'])->name('categories.edit');
+   Route::put('/categories/update/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+   Route::delete('/categories/delete/{id}', [CategoriesController::class, 'delete'])->name('categories.delete');
+
+ 
+  });
+
 
 //oute::get('/admin/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard')->middleware(['auth','admin']);

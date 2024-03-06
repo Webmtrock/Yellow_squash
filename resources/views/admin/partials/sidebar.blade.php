@@ -35,7 +35,12 @@
                             <a href="/admin/users" class="side-menu__item">
                                 <i class="fe fe-home side-menu__icon"></i>
                                 <span class="side-menu__label">Users</span>
-                            </a>
+                                </a>
+                            <li class="slide__category"><span class="category-name">Inventory</span></li>
+                            <a href="/admin/categories" class="side-menu__item">
+                                <i class="fe fe-home side-menu__icon"></i>
+                                <span class="side-menu__label">Categories</span>
+                                </a>
                         </li>
                         <!-- <li class="slide__category"><span class="category-name">Logout</span></li>
                         <li class="slide">
