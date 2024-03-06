@@ -151,15 +151,10 @@ class ExpertController extends Controller
 // }
 public function destroy($id)
 {
-    // Find the Expert by ID
     $expert = Expert::find($id);
-
-    // Check if the Expert exists
     if (!$expert) {
         return redirect()->route('expert.index')->with('error', 'Expert not found');
     }
-
-    // Delete the Expert
     $expert->delete();
 
     // Redirect to the index page with a success message
