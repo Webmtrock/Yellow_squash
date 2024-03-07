@@ -136,6 +136,12 @@
                                 @enderror
                             </div>
 
+
+                            <div class="border-[1.5px]  border-opacity-50 border-black flex items-end rounded-sm">
+                                <textarea maxlength="200" name="summury"
+                                    class="outline-none resize-none w-full text-sm rounded-md px-3 py-[4px]"
+                                    rows="3"></textarea><span class="pr-2">200</span>
+                            </div>
                             <div class="mt-3">
                                 <input class="btn btn-primary" type="submit"
                                     value="{{ isset($data) ? 'Update' : 'Save' }}">

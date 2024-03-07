@@ -25,20 +25,28 @@
              </div>
              <ul class="main-menu">
 
-                       <li class="slide__category"><span class="category-name">Main</span></li>
-                       <li class="slide">
-                           <a href="/admin/dashboard" class="side-menu__item">
-                               <i class="fe fe-home side-menu__icon"></i>
-                               <span class="side-menu__label">Dashboard</span>
-                           </a>
-                       </li>
-                       <li class="slide">
-                           <a href="{{ route('expert.index') }}" class="side-menu__item">
-                               <!-- <i class="fe fe-grid side-menu__icon"></i> -->
-                               <i class="bi bi-file-person-fill"></i>
-                               <span class="side-menu__label">Expert</span>
-                           </a>
-                       </li>
+                 <li class="slide__category"><span class="category-name">Main</span></li>
+                 <li class="slide">
+                     <a href="/admin/dashboard" class="side-menu__item">
+                         <i class="fe fe-home side-menu__icon"></i>
+                         <span class="side-menu__label">Dashboard</span>
+                     </a>
+                 </li>
+                 <li class="slide">
+                     <a href="{{ route('expert.index') }}" class="side-menu__item">
+                         <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+                         <i class="fe fe-users side-menu__icon"></i>
+                         <span class="side-menu__label">Expert</span>
+                     </a>
+                 </li>
+                 <li class="slide">
+                     <a href="{{ route('article.create') }}" class="side-menu__item">
+                         <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+                         <!-- <i class="fa-solid fa-user-tie"></i> -->
+                         <i class="fe fe-users side-menu__icon"></i>
+                         <span class="side-menu__label">Article</span>
+                     </a>
+                 </li>
 
                  <li class="slide__category"><span class="category-name">Roles</span></li>
                  <li class="slide">

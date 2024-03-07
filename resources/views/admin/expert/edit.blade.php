@@ -34,8 +34,8 @@
                             enctype="multipart/form-data" id="update-form">
                             @method('PUT')
                             @csrf
-                            <input type="hidden" name="select_expert_category" id="id"
-                                value="{{old('name',$expert->select_expert_category)}}">
+                            <input type="hidden" name="expert_category_id" id="id"
+                                value="{{old('name',$expert->expert_category_id)}}">
                             <!-- <div class="form-group">
                                 <label for="name" class="mt-2">Select Expert Category <span
                                         class="text-danger">*</span></label>
@@ -47,10 +47,10 @@
                             <div class="form-group">
                                 <label for="selectExpert" class="mt-2">Select Expert Category <span
                                         class="text-danger">*</span></label>
-                                <select class="form-control" id="selectExpert" name="select_expert_category">
+                                <select class="form-control" id="selectExpert" name="expert_category_id">
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                        {{ old('select_expert_category', $expert->select_expert_category) == $category->id ? 'selected' : '' }}>
+                                        {{ old('expert_category_id', $expert->expert_category_id) == $category->id ? 'selected' : '' }}>
                                         {{ $category->title }}
                                     </option>
                                     @endforeach

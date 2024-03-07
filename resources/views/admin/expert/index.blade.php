@@ -106,10 +106,13 @@
                                         <td>{{$experts->expert_description ?? ''}}</td>
 
                                         <td>
-                                            <a href="expert/{{$experts->id}}/edit"
-                                                class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="">Delete</a>
+                                            <a href="expert/{{$experts->id}}/edit" class="btn btn-primary btn-sm"> <i
+                                                    class="fas fa-pencil-alt"></i></a>
+
+                                            <a href="{{ route('expert.destroy', ['id' => $experts->id]) }}"
+                                                class="btn btn-danger btn-sm" data-toggle="modal"
+                                                data-target="#exampleModal{{ $experts->id }}">
+                                                <i class="fas fa-trash-alt"></i></a>
 
                                         </td>
 
