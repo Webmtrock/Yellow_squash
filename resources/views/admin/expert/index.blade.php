@@ -25,8 +25,7 @@
                 <div class="row tabelhed d-flex justify-content-between">
                     <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
 
-                        <a href="{{route('expert.create')}}"
-                            class="btn btn-primary btn-wave waves-effect waves-light me-2 btn btn-lg">
+                        <a href="{{route('expert.create')}}" class="btn btn-primary btn btn-lg">
                             <i class="fe fe-plus mx-1 align-middle"></i>Create Expert
                         </a>
                     </div>
@@ -107,20 +106,10 @@
                                         <td>{{$experts->expert_description ?? ''}}</td>
 
                                         <td>
-<<<<<<< Updated upstream
                                             <a href="expert/{{$experts->id}}/edit"
                                                 class="btn btn-primary btn-sm">Edit</a>
                                             <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
                                                 data-target="">Delete</a>
-=======
-                                            <a href="expert/{{$experts->id}}/edit" class="btn btn-primary btn-sm"> <i
-                                                    class="fas fa-pencil-alt"></i></a>
-
-                                            <a href="{{ route('expert.destroy', ['id' => $experts->id]) }}"
-                                                class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#exampleModal{{ $experts->id }}">
-                                                <i class="fas fa-trash-alt"></i></a>
->>>>>>> Stashed changes
 
                                         </td>
 

@@ -26,6 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
  
+<<<<<<< HEAD
 // Backend Routes 
 Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
 Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
@@ -48,6 +49,18 @@ Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admi
 //     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
    
 // });
+=======
+ //login-Register
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
+    Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
+    Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
+    Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
+    Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
+    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
+   
+});
+>>>>>>> afe15c36302ea1ce06892352bbeea25237527f3a
 //role and permission
 Route::resource('roles', RolesController::class);
 Route::resource('permissions', PermissionsController::class);
@@ -57,6 +70,7 @@ Route::resource('/expert', ExpertController::class);
 Route::post('/expert/create', [ExpertController::class, 'store'])->name('expert.store');
 Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
 Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
+<<<<<<< HEAD
 Route::delete('expert/{id}/delete', [ExpertController::class, 'destroy'])->name('expert.destroy');
 
 
@@ -94,3 +108,6 @@ Route::resource('article', ArticleController::class);
 //     Route::resource('permissions', PermissionsController::class);
      });
     
+=======
+Route::delete('expert/{id}/delete', [ExpertController::class, 'destroy'])->name('expert.destroy');
+>>>>>>> afe15c36302ea1ce06892352bbeea25237527f3a
