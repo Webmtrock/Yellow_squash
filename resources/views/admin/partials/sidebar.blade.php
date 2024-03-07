@@ -33,18 +33,29 @@
                      </a>
                  </li>
                  <li class="slide">
-                     <a href="{{ route('expert.index') }}" class="side-menu__item">
-                         <!-- <i class="fe fe-grid side-menu__icon"></i> -->
-                         <i class="fe fe-users side-menu__icon"></i>
-                         <span class="side-menu__label">Expert</span>
+                     <a href="{{ route('expert.index') }}" class="side-menu__item ">
+                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"
+                             height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                             <path
+                                 d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z">
+                             </path>
+                         </svg>
+                         <span class="side-menu__label ml-1">Expert</span>
                      </a>
                  </li>
                  <li class="slide">
-                     <a href="{{ route('article.create') }}" class="side-menu__item">
-                         <!-- <i class="fe fe-grid side-menu__icon"></i> -->
-                         <!-- <i class="fa-solid fa-user-tie"></i> -->
-                         <i class="fe fe-users side-menu__icon"></i>
-                         <span class="side-menu__label">Article</span>
+                     <a href="{{ route('article.index') }}" class="side-menu__item">
+                         <!-- <i class="fe fe-users side-menu__icon"></i> -->
+                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="20"
+                             width="20" xmlns="http://www.w3.org/2000/svg">
+                             <g>
+                                 <path fill="none" d="M0 0h24v24H0z"></path>
+                                 <path
+                                     d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z">
+                                 </path>
+                             </g>
+                         </svg>
+                         <span class="side-menu__label ml-1">Article</span>
                      </a>
                  </li>
 
