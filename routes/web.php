@@ -6,6 +6,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\ArticleController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,24 +26,71 @@ Route::get('/', function () {
     return view('welcome');
 });
  
- 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
-    Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
-    Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
-    Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
-    Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
-    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
+// Backend Routes 
+Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
+Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
+Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
+Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
+Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
+Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
+
+
+Route::middleware('admin')->prefix('admin')->group(function () {
+Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
+
+//  //login-Register
+// Route::group(['prefix' => 'admin'], function () {
+//     Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
+//     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
+//     Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
+//     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
+//     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
+//     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
    
-});
+// });
+//role and permission
+Route::resource('roles', RolesController::class);
+Route::resource('permissions', PermissionsController::class);
+
+//Expert
 Route::resource('/expert', ExpertController::class);
 Route::post('/expert/create', [ExpertController::class, 'store'])->name('expert.store');
 Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
 Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
-// Route::put('/experts/{expert}', 'ExpertController@update')->name('experts.update');
-Route::delete('expert/{id}/delete', 'ExpertController@destroy')->name('expert.destroy');
+Route::delete('expert/{id}/delete', [ExpertController::class, 'destroy'])->name('expert.destroy');
 
 
-  
-    Route::resource('roles', RolesController::class);
-    Route::resource('permissions', PermissionsController::class);
+// Users 
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+
+// Categories
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoriesController::class, 'create'])->name('categories.create');
+Route::post('/categories/store', [CategoriesController::class, 'store'])->name('categories.store');
+Route::get('/categories/edit/{id}', [CategoriesController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/update/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+Route::delete('/categories/delete/{id}', [CategoriesController::class, 'delete'])->name('categories.delete');
+
+//Article
+Route::resource('article', ArticleController::class);
+ 
+
+    
+   //experts
+
+// Route::resource('/expert', ExpertController::class);
+// Route::post('/expert/create', [ExpertController::class, 'store'])->name('expert.store');
+// Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
+// Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
+// // Route::put('/experts/{expert}', 'ExpertController@update')->name('experts.update');
+// Route::delete('expert/{id}/delete', 'ExpertController@destroy')->name('expert.destroy');
+// Route::resource('roles', RolesController::class);
+//     Route::resource('permissions', PermissionsController::class);
+     });
+    

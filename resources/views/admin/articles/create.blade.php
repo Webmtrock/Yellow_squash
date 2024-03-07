@@ -23,23 +23,45 @@
 
                 <div class="card">
                     <div class="card-header border-bottom h3">
-                        Create Expert
+                        New Blog
                         <!-- {{ isset($expert) && isset($expert->id) ? 'Edit Expert' : 'Create Expert' }} -->
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ route('expert.store') }}" method="POST" enctype="multipart/form-data"
+                        <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data"
                             id="basic-form">
 
                             @csrf
 
                             <input type="hidden" name="expert_category_id" id="id"
                                 value="{{ isset($data) ? $data->id : '' }}">
+
                             <div class="form-group">
-                                <label for="name" class="mt-2">Select Expert Category <span
+                                <label for="name" class="mt-2"> Article Title <span class="text-danger">*</span></label>
+                                <input type="text" name="article_title"
+                                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value=""
+                                    required>
+                                @if($errors->has('name'))
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="mt-2"> Summary <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="summary" rows="3" name="summary"></textarea>
+
+                                @error('summary')
+                                <span class="invalid-feedback form-invalid fw-bold" role="alert">
+                                    {{ $message }}
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="mt-2">Select Category <span
                                         class="text-danger">*</span></label>
                                 <select class="form-control" id="selectExpert" name="expert_category_id">
-                                    <option value="">Select Expert Category</option>
+                                    <option value="">Select Category</option>
                                     @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
@@ -54,16 +76,23 @@
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
                                 @endif
                             </div>
-
-
                             <div class="form-group">
-                                <label for="name" class="mt-2"> Expert Designation <span
+                                <label for="name" class="mt-2"> Select Article Author <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="expert_designation"
-                                    class="form-control @error('expert_designation') is-invalid @enderror"
-                                    value="{{ old('expert_designation', isset($data) ? $data->expert_designation : '') }}"
+                                <input type="text" name="name"
+                                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value=""
                                     required>
-                                @error('expert_designation')
+                                @if($errors->has('name'))
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="mt-2"> Article Slug <span class="text-danger">*</span></label>
+                                <input type="text" name="article_slug"
+                                    class="form-control @error('article_slug') is-invalid @enderror"
+                                    value="{{ old('article_slug', isset($data) ? $data->article_slug : '') }}" required>
+                                @error('article_slug')
                                 <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                     {{ $message }}
                                 </span>
@@ -71,12 +100,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name" class="mt-2"> Experience <span class="text-danger">*</span></label>
-                                <input type="text" name="expert_experience"
-                                    class="form-control @error('expert_experience') is-invalid @enderror"
-                                    value="{{ old('expert_experience', isset($data) ? $data->expert_experience : '') }}"
-                                    required>
-                                @error('expertDesignation')
+                                <label for="name" class="mt-2"> Meta Tag <span class="text-danger">*</span></label>
+                                <input type="text" name="meta_tag"
+                                    class="form-control @error('meta_tag') is-invalid @enderror"
+                                    value="{{ old('meta_tag', isset($data) ? $data->meta_tag : '') }}" required>
+                                @error('meta_tag')
                                 <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                     {{ $message }}
                                 </span>
@@ -84,42 +112,30 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name" class="mt-2"> Qualification <span class="text-danger">*</span></label>
-                                <input type="text" name="expert_qualification"
-                                    class="form-control @error('expert_qualification') is-invalid @enderror"
-                                    value="{{ old('expert_qualification', isset($data) ? $data->expert_qualification : '') }}"
-                                    required>
-                                @error('expertDesignation')
-                                <span class="invalid-feedback form-invalid fw-bold" role="alert">
-                                    {{ $message }}
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="name" class="mt-2"> Expert Language <span
+                                <label for="name" class="mt-2"> Meta Description <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="expert_language"
-                                    class="form-control @error('expert_language') is-invalid @enderror"
-                                    value="{{ old('expert_language', isset($data) ? $data->expert_language : '') }}"
+                                <input type="text" name="meta_description"
+                                    class="form-control @error('meta_description') is-invalid @enderror"
+                                    value="{{ old('meta_description', isset($data) ? $data->meta_description : '') }}"
                                     required>
-                                @error('expertLanguage')
+                                @error('meta_description')
                                 <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                     {{ $message }}
                                 </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="name" class="mt-2"> Expert Description <span
-                                        class="text-danger">*</span></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                    name="expert_description"></textarea>
-
-                                @error('expert_description')
+                                <label for="name" class="mt-2"> Banner Image<span class="text-danger">*</span></label>
+                                <input type="file" name="banner_image"
+                                    class="form-control @error('banner_image') is-invalid @enderror"
+                                    value="{{ old('banner_image', isset($data) ? $data->banner_image : '') }}" required>
+                                @error('banner_image')
                                 <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                     {{ $message }}
                                 </span>
                                 @enderror
                             </div>
+
                             <div class="mt-3">
                                 <input class="btn btn-primary" type="submit"
                                     value="{{ isset($data) ? 'Update' : 'Save' }}">

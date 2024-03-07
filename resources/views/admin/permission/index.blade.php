@@ -115,20 +115,25 @@
                                     <td>{{ $value->title ?? '' }}</td>
                                     <td class="text-center">
 
+                                        <!-- <a href="{{ route('permissions.edit', $value->id) }}"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light me-2"><i
+                                                class="fa fa-pencil"></i>
+                                        </a> -->
                                         <a href="{{ route('permissions.edit', $value->id) }}"
-                                            class="btn btn-primary btn-wave waves-effect waves-light me-2">Edit
+                                            class="btn btn-primary btn-sm">
+                                            <i class="fas fa-pencil-alt"></i>
                                         </a>
-
                                         <form action="{{ route('permissions.destroy', $value->id) }}" method="POST"
                                             style="display: inline;">
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit"
-                                                class="btn btn-danger btn-wave waves-effect waves-light me-2"
-                                                onclick="return confirm('Are you sure you want to delete this permission?')">
-                                                Delete
+                                            <button type="submit" data-toggle="modal"
+                                                data-target="#exampleModal{{ $value->id }}"
+                                                class="btn btn-danger btn-sm btn-wave waves-effect waves-light me-2">
+                                                <i class="fas fa-trash-alt"></i>
                                             </button>
+
                                         </form>
 
                                     </td>
@@ -152,5 +157,32 @@
         </div>
     </div>
 </div>
-
+@foreach($data as $key => $value)
+<div class="modal fade" id="exampleModal{{ $value->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this user?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- Delete Form -->
+                <form id="deleteForm{{ $value->id }}" action="{{ route('permissions.destroy', $value->id) }}"
+                    method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @endsection
