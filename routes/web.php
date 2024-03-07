@@ -9,6 +9,7 @@ use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\WebinarsController;
 
 
 /*
@@ -52,6 +53,7 @@ Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admi
 //role and permission
 Route::resource('roles', RolesController::class);
 Route::resource('permissions', PermissionsController::class);
+Route::resource('webinars', WebinarsController::class);
 
 //Expert
 Route::resource('/expert', ExpertController::class);

@@ -84,11 +84,19 @@
                      <i class="fe fe-users side-menu__icon"></i>
                      <span class="side-menu__label">Users</span>
                  </a>
+                 <li class="slide__category"><span class="category-name">Webinars</span></li>
+                 <a href="{{ route('webinars.index') }}" class="side-menu__item">
+                     <i class="fe fe-users side-menu__icon"></i>
+                     <span class="side-menu__label">Webinars</span>
+                 </a>
+
+
                  <li class="slide__category"><span class="category-name">Inventory</span></li>
                  <a href="/admin/categories" class="side-menu__item">
                      <i class="fe fe-book side-menu__icon"></i>
                      <span class="side-menu__label">Categories</span>
                  </a>
+
                  <li class="slide__category"><span class="category-name">Logout</span></li>
                  <li class="slide">
                      <a href="{{ route('admin/logout') }}" class="side-menu__item"
