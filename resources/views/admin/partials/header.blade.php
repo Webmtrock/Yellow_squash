@@ -1,5 +1,5 @@
-<!-- Start Switcher -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header border-bottom">
             <h5 class="offcanvas-title text-default" id="offcanvasRightLabel">Switcher</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -458,26 +458,23 @@
             </div>
         </div>
     </div>
-    <!-- End Switcher -->
-
-
-    <!-- Loader -->
+   
     <div id="loader" >
         <img src="../assets/images/media/loader.svg" alt="">
     </div>
-    <!-- Loader -->
+    
 
     <div class="page">
-        <!-- app-header -->
+        
         <header class="app-header">
 
-            <!-- Start::main-header-container -->
+           
             <div class="main-header-container container-fluid">
 
-                <!-- Start::header-content-left -->
+                
                 <div class="header-content-left">
 
-                    <!-- Start::header-element -->
+                   
                     <div class="header-element">
                         <div class="horizontal-logo">
                             <a href="index.html" class="header-logo">
@@ -490,45 +487,32 @@
                             </a>
                         </div>
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
+ 
                     <div class="header-element">
-                        <!-- Start::header-link -->
                         <a aria-label="Hide Sidebar"
                             class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle mx-0 my-auto"
                             data-bs-toggle="sidebar" href="javascript:void(0);"><span></span></a>
-                        <!-- End::header-link -->
+                        
                     </div>
-                    <!-- End::header-element -->
-                    <!-- Start::header-element -->
                     <div class="header-element header-search">
-                        <!-- Start::header-link -->
-                        <!-- <a href="javascript:void(0);" class="header-link" data-bs-toggle="modal" data-bs-target="#searchModal">
-                            <i class="bx bx-search-alt-2 header-link-icon"></i>
-                        </a> -->
+                     
                         <div class="main-header-search ms-3 d-none d-lg-block my-auto">
                             <input class="form-control" placeholder="Search for anything..." type="search"> <button
                                 class="btn"><i class="fe fe-search" aria-hidden="true"></i></button>
                         </div>
-                        <!-- End::header-link -->
+                        
                     </div>
-                    <!-- End::header-element -->
+                   
 
                 </div>
-                <!-- End::header-content-left -->
-
-                <!-- Start::header-content-right -->
                 <div class="header-content-right">
-
-                    <!-- Start::header-element -->
                     <div class="header-element country-selector">
-                        <!-- Start::header-link|dropdown-toggle -->
+                        
                         <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
                             data-bs-toggle="dropdown">
                             <img src="../assets/images/flags/us_flag.jpg" alt="img" class="rounded-circle">
                         </a>
-                        <!-- End::header-link|dropdown-toggle -->
+                       
                         <ul class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                             <li>
                                 <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
@@ -580,58 +564,41 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- End::header-element -->
-
-                     <!-- Start::header-element -->
                      <div class="header-element header-search d-block d-lg-none">
-                        <!-- Start::header-link -->
+                       
                         <a href="javascript:void(0);" class="header-link" data-bs-toggle="modal" data-bs-target="#searchModal">
                             <i class="ti ti-search header-link-icon"></i>
                         </a>
-                        <!-- End::header-link -->
+                       
                     </div>
-                    <!-- End::header-element -->
 
-                    <!-- Start::header-element -->
                     <div class="header-element header-theme-mode">
-                        <!-- Start::header-link|layout-setting -->
                         <a href="javascript:void(0);" class="header-link layout-setting">
                             <span class="light-layout">
-                                <!-- Start::header-link-icon -->
+                                
                                 <i class="fe fe-moonfe fe-moon header-link-icon align-middle"></i>
-                                <!-- End::header-link-icon -->
+                                
                             </span>
                             <span class="dark-layout">
-                                <!-- Start::header-link-icon -->
+                                
                                 <i class="fe fe-sun header-link-icon"></i>
-                                <!-- End::header-link-icon -->
+                                
                             </span>
                         </a>
-                        <!-- End::header-link|layout-setting -->
+                        
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element header-fullscreen">
-                        <!-- Start::header-link -->
                         <a onclick="openFullscreen();" href="#" class="header-link">
                             <i class="fe fe-maximize full-screen-open header-link-icon"></i>
                             <i class="fe fe-minimize full-screen-close header-link-icon d-none"></i>
                         </a>
-                        <!-- End::header-link -->
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element notifications-dropdown">
-                        <!-- Start::header-link|dropdown-toggle -->
                         <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
                             data-bs-toggle="dropdown">
                             <i class="fe fe-bell header-link-icon"></i>
                             <span class="pulse-success"></span>
                         </a>
-                        <!-- End::header-link|dropdown-toggle -->
-                        <!-- Start::main-header-dropdown -->
                         <div class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                             <div class="p-3">
                                 <div class="d-flex align-items-center justify-content-between">
@@ -766,20 +733,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End::main-header-dropdown -->
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element meassage-dropdown d-none d-xl-block">
-                        <!-- Start::header-link|dropdown-toggle -->
                         <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
                             data-bs-toggle="dropdown">
                             <i class="fe fe-message-square header-link-icon"></i>
                             <span class="pulse-danger"></span>
                         </a>
-                        <!-- End::header-link|dropdown-toggle -->
-                        <!-- Start::main-header-dropdown -->
                         <div class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                             <div class="p-3">
                                 <div class="d-flex align-items-center justify-content-between">
@@ -909,20 +869,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End::main-header-dropdown -->
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element cart-dropdown">
-                        <!-- Start::header-link|dropdown-toggle -->
                         <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
                             data-bs-toggle="dropdown">
                             <i class="fe fe-shopping-cart header-link-icon"></i>
                             <span class="badge rounded-pill bg-success cart-badge fw-normal" id="cart-icon-badge">5</span>
                         </a>
-                        <!-- End::header-link|dropdown-toggle -->
-                        <!-- Start::main-header-dropdown -->
                         <div class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                             <div class="p-3">
                                 <div class="d-flex align-items-center justify-content-between">
@@ -1072,13 +1025,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End::main-header-dropdown -->
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
+                  
                     <div class="header-element profile-1">
-                        <!-- Start::header-link|dropdown-toggle -->
                         <a href="#" class=" dropdown-toggle leading-none d-flex px-1" id="mainHeaderProfile"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <div class="d-flex align-items-center">
@@ -1088,7 +1037,6 @@
                                 </div>
                             </div>
                         </a>
-                        <!-- End::header-link|dropdown-toggle -->
                         <ul class="main-header-dropdown dropdown-menu pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end"
                             aria-labelledby="mainHeaderProfile">
                             <li><a class="dropdown-item d-flex" href="profile.html"><i
@@ -1106,44 +1054,24 @@
                                         class="ti ti-logout fs-18 me-2 op-7"></i>Log Out</a></li>
                         </ul>
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element d-none d-sm-block">
-                        <!-- Start::header-link|switcher-icon -->
                         <a href="#" class="header-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvassidebar">
                             <i class="fe fe-menu header-link-icon"></i>
                         </a>
-                        <!-- End::header-link|switcher-icon -->
                     </div>
-                    <!-- End::header-element -->
-
-                    <!-- Start::header-element -->
                     <div class="header-element">
-                        <!-- Start::header-link|switcher-icon -->
                         <a href="#" class="header-link switcher-icon" data-bs-toggle="offcanvas"
                             data-bs-target="#switcher-canvas">
                             <i class="fe fe-settings header-link-icon"></i>
                         </a>
-                        <!-- End::header-link|switcher-icon -->
                     </div>
-                    <!-- End::header-element -->
-
                 </div>
-                <!-- End::header-content-right -->
-
             </div>
-            <!-- End::main-header-container -->
-
         </header>
-        <!-- /app-header -->
 </div>
-
+<div class="scrollToTop" id="back-to-top">
+    <i class="ri-arrow-up-s-fill fs-20"></i>
+</div>
+<div id="responsive-overlay"></div>
     
-    <!-- Scroll To Top -->
-    <div class="scrollToTop" id="back-to-top">
-        <i class="ri-arrow-up-s-fill fs-20"></i>
-    </div>
-    <div id="responsive-overlay"></div>
-    <!-- Scroll To Top -->
 

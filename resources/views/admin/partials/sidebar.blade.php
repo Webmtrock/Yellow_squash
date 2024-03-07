@@ -24,9 +24,8 @@
                  </svg>
              </div>
              <ul class="main-menu">
-
-                 <li class="slide__category"><span class="category-name">Main</span></li>
-                 <li class="slide">
+                <li class="slide__category"><span class="category-name">Main</span></li>
+                <li class="slide">
                      <a href="/dashboard" class="side-menu__item">
                          <i class="fe fe-home side-menu__icon"></i>
                          <span class="side-menu__label">Dashboard</span>
@@ -678,7 +677,7 @@
                                     <a href="vector-maps.html" class="side-menu__item">Vector Maps</a>
                                 </li> -->
              </ul>
-             </li>
+            
 
              <!-- <li class="slide">
                             <a href="icons.html" class="side-menu__item">
@@ -687,15 +686,11 @@
                             </a>
                         </li> -->
 
-             </ul>
-             <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
+            
+                 <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
                      height="24" viewBox="0 0 24 24">
                      <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
                  </svg></div>
          </nav>
-
-
      </div>
-
-
  </aside>

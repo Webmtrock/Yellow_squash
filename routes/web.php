@@ -6,6 +6,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\FrontendRegisterController;
+use App\Http\Controllers\FrontendLoginController;
+use App\Http\Controllers\AdminConditionsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,10 +33,23 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
+    Route::GET('/conditions-we-cover ', [AdminConditionsController::class, 'conditionWweCover'])->name('admin/conditionWweCover');
    
 });
  
  
     Route::resource('/expert', ExpertController::class);
-    Route::resource('roles', RolesController::class);
+    //Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
+
+
+    ///////////  Frontend  Route /////////////
+
+    Route::group(['prefix' => 'frontend'], function () {
+        Route::GET('/yellowsquash', [FrontendController::class, 'index'])->name('frontend/yellowsquash');
+        Route::get('/login', [FrontendLoginController::class, 'index'])->name('frontend/login');
+        Route::get('/register', [FrontendRegisterController::class, 'index'])->name('frontend/register');
+            
+    });
+    Route::resource('roles', RolesController::class)
+    ->middleware('WebGuard');

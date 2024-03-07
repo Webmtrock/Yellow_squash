@@ -18,7 +18,7 @@ class RolesController extends Controller
      */
     function __construct()
     {
-
+        $this->middleware('WebGuard');
     }
     
     /**
@@ -44,6 +44,7 @@ class RolesController extends Controller
     public function create()
     {   
         $data['permissions'] = Permission::all()->pluck('title', 'id');
+
         return view('admin.roles.create', $data);
     }
     
@@ -55,9 +56,9 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {   
-        
-        $request->validate([
-            'title' => 'required | string | unique:roles,name,'.$request->id,
+        //return  $request;
+         $request->validate([
+            'name' => 'required|string|unique:roles,name,'.$request->id,
         ]);
 
         $role = Role::updateOrCreate(
@@ -65,10 +66,11 @@ class RolesController extends Controller
                 'id' => $request->id,
             ],
             [
-                'name' => $request->title,
+                'name' => $request->name,
             ]
         );
 
+        
         $role->permissions()->sync($request->input('permissions', []));
 
         return redirect()->route('admin.roles.index');

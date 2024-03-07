@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 <label for="name" class="mt-2"> Title <span class="text-danger">*</span></label>
-                                <input type="text" name="title"
+                                <input type="text" name="name"
                                     class="form-control @error('title') is-invalid @enderror" placeholder="Title"
                                     value="{{ old('title', isset($data) ? $data->name : '') }}" required>
                                 @error('title')
@@ -84,18 +84,17 @@
 
 @section('scripts')
 <script>
-$(document).ready(function() {
-    $('.select2').select2();
-    $('.selectAll').on('click', function() {
-        $('.permissions option').prop('selected', true);
-        $('.permissions').trigger('change');
-    });
+    $(document).ready(function(){
+        $(document).on('click', '.selectAll', function(){
+            $(".permissions > option").prop("selected", true);
+            $(".permissions").trigger("change");
+        });
 
-    $('.deselectAll').on('click', function() {
-        $('.permissions option').prop('selected', false);
-        $('.permissions').trigger('change');
+        $(document).on('click', '.deselectAll', function(){
+            $(".permissions > option").prop("selected", false);
+            $(".permissions").trigger("change");
+        });
     });
-});
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @endsection

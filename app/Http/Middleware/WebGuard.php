@@ -19,15 +19,4 @@ class WebGuard
         return $next($request);
     }
 }
-    // public function handle(Request $request, Closure $next)
-    // {
-    //     if ($request->is('admin/login')) {
-    //         return $next($request);
-    //     }
-
-    //     if (Auth::check() && Auth::user()->user_type == 'Admin') {
-    //         return $next($request);
-    //     }
-       
-    //     return redirect()->route('admin/login');
-    // }
+    
