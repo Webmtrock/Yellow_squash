@@ -10,7 +10,7 @@ class Expert extends Model
     use HasFactory;
 
     protected $fillable = [
-        'select_expert_category',
+        'expert_category_id',
         'name',
         'expert_designation',
         'expert_experience',
@@ -18,7 +18,10 @@ class Expert extends Model
         'expert_language',
         'expert_description',
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'expert_category_id');
+    }
     
-
     
 }

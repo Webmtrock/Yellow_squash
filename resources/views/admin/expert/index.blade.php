@@ -83,7 +83,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
-                                            <!-- <th scope="col">Select Category</th> -->
+                                            <th scope="col">Select Category</th>
                                             <th scope="col">Expert Name</th>
                                             <th scope="col">Expert Designation</th>
                                             <th scope="col">Experience</th>
@@ -96,7 +96,8 @@
 
                                     @foreach($expert as $experts)
                                     <tr>
-                                        <th scope="row">{{$experts->id ?? ''}}</th>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{$experts->category->title ?? ''}}</th>
                                         <td>{{$experts->name ?? ''}}</td>
                                         <td>{{$experts->expert_designation ?? ''}}</td>
                                         <td>{{$experts->expert_experience ?? ''}}</td>
@@ -105,19 +106,10 @@
                                         <td>{{$experts->expert_description ?? ''}}</td>
 
                                         <td>
-
-                                            <!-- <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="">Delete</a> -->
-                                            <form action="{{ route('expert.destroy', ['id' => $experts->id]) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <a href="expert/{{$experts->id}}/edit"
-                                                    class="btn btn-primary btn-sm">Edit</a>
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    Delete
-                                                </button>
-                                            </form>
+                                            <a href="expert/{{$experts->id}}/edit"
+                                                class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                data-target="">Delete</a>
 
                                         </td>
 
@@ -134,4 +126,33 @@
         </div>
     </div>
 
+
+    @foreach ($expert as $experts)
+    <div class="modal fade" id="exampleModal{{ $experts->id }}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this user?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Delete Form -->
+                    <form id="deleteForm{{ $experts->id }}"
+                        action="{{ route('expert.destroy', ['id' => $experts->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
     @endsection

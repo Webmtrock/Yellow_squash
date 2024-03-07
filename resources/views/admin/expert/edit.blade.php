@@ -34,16 +34,29 @@
                             enctype="multipart/form-data" id="update-form">
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="select_expert_category" id="id"
+                                value="{{old('name',$expert->select_expert_category)}}">
                             <!-- <div class="form-group">
-                                <label for="name" class="mt-2"> Select Expert Category <span
+                                <label for="name" class="mt-2">Select Expert Category <span
                                         class="text-danger">*</span></label>
-                                <select class="form-control" id="selectExpert">
-                                    <option>Bone Elderly Lung</option>
-                                    <option>Alternate Therapy</option>
-                                    <option>Accupressure</option>
+                                <select class="form-control" id="selectExpert" name="select_expert_category">
+                                    <option value="{{old('name',$expert->select_expert_category)}}"></option>
 
                                 </select>
                             </div> -->
+                            <div class="form-group">
+                                <label for="selectExpert" class="mt-2">Select Expert Category <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control" id="selectExpert" name="select_expert_category">
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ old('select_expert_category', $expert->select_expert_category) == $category->id ? 'selected' : '' }}>
+                                        {{ $category->title }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="name" class="mt-2"> Expert Name <span class="text-danger">*</span></label>
                                 <input type="text" name="name"
@@ -107,12 +120,13 @@
                                 </span>
                                 @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="name" class="mt-2"> Expert Description <span
+                                <label for="name" class="mt-2">Expert Description <span
                                         class="text-danger">*</span></label>
                                 <textarea class="form-control" name="expert_description"
-                                    value="{{ old('expert_description', isset($expert) ? $expert->expert_description : '') }}"
-                                    id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    id="exampleFormControlTextarea1" rows="3">{{ old('expert_description', isset($expert) ? $expert->expert_description : '') }}
+                                </textarea>
 
                                 @error('expert_description')
                                 <span class="invalid-feedback form-invalid fw-bold" role="alert">
@@ -120,6 +134,7 @@
                                 </span>
                                 @enderror
                             </div>
+
                             <div class="mt-3">
                                 <input class="btn btn-primary" type="submit" value="Update">
                             </div>

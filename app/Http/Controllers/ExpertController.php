@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Expert;
+use App\Models\Category;
 
 class ExpertController extends Controller
 {
@@ -41,30 +42,26 @@ class ExpertController extends Controller
     
      public function store(Request $request)
      {
-         // Validate the form
-         $validatedData = $request->validate([
-            //  'select_expert_category' => 'required|string|max:255',
-             'name' => 'required|string|max:255',
-             'expert_designation' => 'required',
-             'expert_experience' => 'required',
-             'expert_qualification' => 'required',
-             'expert_language' => 'required',
-             'expert_description' => 'required',
-         ]);
-     
-         // Create a new Expert instance and save it to the database
-         $expert = Expert::create([
-            //  'select_expert_category' => $validatedData['select_expert_category'],
-             'name' => $validatedData['name'],
-             'expert_designation' => $validatedData['expert_designation'],
-             'expert_experience' => $validatedData['expert_experience'],
-             'expert_qualification' => $validatedData['expert_qualification'],
-             'expert_language' => $validatedData['expert_language'],
-             'expert_description' => $validatedData['expert_description'],
-         ]);
-     
-         // Redirect to the index page with a success message
-         return redirect()->route('expert.index')->with('success', 'Expert created successfully');
+            $validatedData = $request->validate([
+                'expert_category_id' => 'required',
+                'name' => 'required|string|max:255',
+                'expert_designation' => 'required',
+                'expert_experience' => 'required',
+                'expert_qualification' => 'required',
+                'expert_language' => 'required',
+                'expert_description' => 'required',
+            ]);
+        
+            $expert = Expert::create([
+                'expert_category_id' => $validatedData['expert_category_id'],
+                'name' => $validatedData['name'],
+                'expert_designation' => $validatedData['expert_designation'],
+                'expert_experience' => $validatedData['expert_experience'],
+                'expert_qualification' => $validatedData['expert_qualification'],
+                'expert_language' => $validatedData['expert_language'],
+                'expert_description' => $validatedData['expert_description'],
+            ]);
+            return redirect()->route('expert.index')->with('success', 'Expert created successfully');
      }
      
 
@@ -90,7 +87,9 @@ class ExpertController extends Controller
     public function edit($id)
     {    
         $expert = Expert::where('id',$id)->first();
-        return view('admin.expert.edit',['expert' =>$expert]);
+        $categories = Category::all();
+        return view('admin.expert.edit', compact('expert', 'categories'));
+        // return view('admin.expert.edit',['expert' =>$expert]);
     
     }
 
@@ -106,6 +105,7 @@ class ExpertController extends Controller
         // dd($request->all());
         // Validate the form
         $validatedData = $request->validate([
+            'expert_category_id' => 'required',
             'name' => 'required|string|max:255',
             'expert_designation' => 'required',
             'expert_experience' => 'required',
@@ -124,6 +124,7 @@ class ExpertController extends Controller
     
         // Update the Expert with the validated data
         $expert->update([
+            'expert_category_id' => validatedData['expert_category_id'],
             'name' => $validatedData['name'],
             'expert_designation' => $validatedData['expert_designation'],
             'expert_experience' => $validatedData['expert_experience'],
