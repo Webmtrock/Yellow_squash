@@ -58,6 +58,13 @@
                          <span class="side-menu__label ml-1">Article</span>
                      </a>
                  </li>
+                  <li class="slide">
+                           <a href="/admin/programs" class="side-menu__item">
+                               <!-- <i class="fe fe-grid side-menu__icon"></i> -->
+                               <i class="bi bi-file-person-fill"></i>
+                               <span class="side-menu__label">Program</span>
+                           </a>
+                       </li>
 
                  <li class="slide__category"><span class="category-name">Roles</span></li>
                  <li class="slide">
