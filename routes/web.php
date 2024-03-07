@@ -93,5 +93,5 @@ Route::resource('article', ArticleController::class);
 // Route::delete('expert/{id}/delete', 'ExpertController@destroy')->name('expert.destroy');
 // Route::resource('roles', RolesController::class);
 //     Route::resource('permissions', PermissionsController::class);
+//     Route::resource('permissions', PermissionsController::class);
      });
-    
