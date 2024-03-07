@@ -46,6 +46,7 @@ Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admi
 //     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
 //     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
 //     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
+//     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
    
 // });
 //role and permission
