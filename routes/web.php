@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
  
- 
+ //login-Register
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
@@ -39,17 +39,5 @@ Route::group(['prefix' => 'admin'], function () {
  
  
     Route::resource('/expert', ExpertController::class);
-    //Route::resource('roles', RolesController::class);
+    Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
-
-
-    ///////////  Frontend  Route /////////////
-
-    Route::group(['prefix' => 'frontend'], function () {
-        Route::GET('/yellowsquash', [FrontendController::class, 'index'])->name('frontend/yellowsquash');
-        Route::get('/login', [FrontendLoginController::class, 'index'])->name('frontend/login');
-        Route::get('/register', [FrontendRegisterController::class, 'index'])->name('frontend/register');
-            
-    });
-    Route::resource('roles', RolesController::class)
-    ->middleware('WebGuard');
