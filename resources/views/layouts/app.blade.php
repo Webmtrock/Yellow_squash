@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light"
-    data-menu-styles="light" data-toggled="close">
+data-menu-styles="light" data-toggled="close">
 
 <head>
 
@@ -11,7 +11,12 @@
     <title>Yellow</title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
+<<<<<<< Updated upstream
     <meta name="keywords" content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
+=======
+    <meta name="keywords"
+    content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
+>>>>>>> Stashed changes
 
     
     <link id="style" href="{{ asset('admin/assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -39,7 +44,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-...your-sha-here..." crossorigin="anonymous" />
+    integrity="sha512-...your-sha-here..." crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -71,6 +77,12 @@
     <script src="{{ asset('admin/assets/js/index.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom-switcher.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+<<<<<<< Updated upstream
+=======
+    <script src="{{ asset('admin/assets/js/planjquery.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+>>>>>>> Stashed changes
 
 
 
@@ -89,6 +101,10 @@
     $(document).ready(function() {
         $('.select2').select2();
     });
+<<<<<<< Updated upstream
     </script> -->
     
+=======
+</script> -->
+>>>>>>> Stashed changes
 </body>

@@ -36,7 +36,7 @@
                 <select class="form-control @error('expert') is-invalid @enderror" name="expert_id">
                     <option value="">Select Program Expert</option>
                     @foreach($experts as $expert)
-                        <option value="{{ $expert->id }}" {{ $program->expert_id == $expert->id ? 'selected' : '' }}>{{ $expert->name }}</option>
+                    <option value="{{ $expert->id }}" {{ $program->expert_id == $expert->id ? 'selected' : '' }}>{{ $expert->name }}</option>
                     @endforeach
                 </select>
                 @error('expert')
@@ -45,27 +45,24 @@
                 </span>
                 @enderror
             </div>
-            <!--  <div class="form-group mb-2">
-                    <label>Program Video <span class="text-danger">*</span></label>
-                    <input type="file" class="form-control-file @error('video') is-invalid @enderror" name="video">
-                    @error('video')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+
+            <div class="form-group mb-2">
+                <label>Program Image <span class="text-danger">*</span></label>
+                <input type="file" class="form-control-file @error('image_url') is-invalid @enderror" name="image_url">
+                @error('image_url')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+
+                <!-- Display current image if available -->
+                @if($program->image_url)
+                <div class="mt-2">
+                    <p>Program Image:</p>
+                    <img src="{{ asset('uploads/'.$program->image_url) }}" alt="Current Image" style="max-width: 200px;">
                 </div>
-
-                <div class="form-group mb-2">
-                    <label>Program Image <span class="text-danger">*</span></label>
-                    <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image">
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div> -->
-
-            <!-- Add other fields and pre-fill them with the existing program data -->
+                @endif
+            </div>
 
             <div class="form-group mb-2">
                 <label>Program For <span class="text-danger">*</span></label>
@@ -102,7 +99,7 @@
                 <select class="form-control @error('category') is-invalid @enderror" name="category_id">
                     <option value="">Select Category</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ $program->category_id == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
+                    <option value="{{ $category->id }}" {{ $program->category_id == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
                     @endforeach
                 </select>
                 @error('category')

@@ -8,7 +8,7 @@
 
     <body>
         <div class="container mt-3 mb-3">
-            <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="planForm" action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group mb-2">
@@ -57,7 +57,11 @@
                     @enderror
                 </div> -->
 
+<<<<<<< Updated upstream
                 <!--  <div class="form-group mb-2">
+=======
+                <div class="form-group mb-2">
+>>>>>>> Stashed changes
                     <label>Program Image <span class="text-danger">*</span></label>
                     <input type="file" class="form-control-file @error('image_url') is-invalid @enderror" name="image_url">
                     @error('image_url')
@@ -65,7 +69,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div> -->
+                </div>
 
                 <div class="form-group mb-2">
                     <label>Program For <span class="text-danger">*</span></label>
@@ -121,11 +125,95 @@
                     </span>
                     @enderror
                 </div>
+                <!--  Add Plan Start   -->
+                <div>
+                    <label>Add Plans</label>
+                </div>
+                <button type="button" id="addPlan" class="btn btn-warning text-black">Add+</button>
+                <div id="planFields">
+                    <div class="form-group mb-2 plan-group">
+                        <div>
+                            <label>Plan 1</label>
+                        </div>
+                        <label>Enter Plan</label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+                </div> 
+
+                <!-- Add Plan End -->
+
+                <!--  Add Plan Type Start   -->
+                <button type="button" id="addPlanType" class="btn btn-warning text-black">AddPlanType+</button>
+                <div id="planTypeFields">
+                    <div class="form-group mb-2 plan-group">
+                        <label>Enter Plan Type</label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+                    <div class="form-group mb-2 plan-group">
+                        <label>Discount</label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+                    <div class="form-group mb-2 plan-group">
+                        <label>Price</label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+
+
+                </div> 
+
+                <!-- Add Static Sessions  -->
+                <div>
+                    <label>Add Static Sessions</label>
+                </div>
+                <button type="button" id="addstaticsession" class="btn btn-warning text-black">AddMore+</button>
+                <div id="staticsessionfields">
+                    <div class="form-group mb-2 plan-group">
+                        <label>Session Tittle</label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+                    <div class="form-group mb-2 plan-group">
+                        <label>Session Duration
+                        </label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+                    <div class="form-group mb-2 plan-group">
+                        <label>Session Description
+                        </label>
+                        <input type="text" class="form-control" name="intake_from_link[]">
+                    </div>
+
+
+                </div> 
+
+                <!-- Add Static Sessions  -->
+
+                <!-- Add FAQs  -->
+                <div>
+                    <label>Add FAQs</label>
+                </div>
+                <button type="button" id="addfaq" class="btn btn-warning text-black">Add FAQ</button>
+                <div id="faqfields">
+                    <div class="form-group mb-2 plan-group">
+                        <input type="text" class="form-control" name="intake_from_link[]"placeholder="Question">
+                    </div>
+                    <div class="form-group mb-2 plan-group">
+                        <input type="text" class="form-control" name="intake_from_link[]"placeholder="Answer">
+                    </div>
+                </div> 
+
+                <!-- Add FAQs  -->
 
 
 
 
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+    </body>
+</div>
+@endsection
 
+<<<<<<< Updated upstream
                 <!-- Add other fields like Whatsapp Group Url, Intake Form Link, Select Category, Enrolled Users -->
 
                 <input type="submit" value="Submit" class="btn btn-success">
@@ -134,3 +222,5 @@
     </body>
 </div>
 @endsection
+=======
+>>>>>>> Stashed changes

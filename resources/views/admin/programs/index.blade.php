@@ -102,7 +102,7 @@
                                         <th>Title</th>
                                         <th>Rating</th>
                                         <th>Expert</th>
-                                        <!-- <th>Expert Images </th> -->
+                                        <th>Program Images</th>
                                         <th>Category</th>
                                         <th>Program</th>
                                         <th class="text-center w-25">Action</th>
@@ -117,6 +117,12 @@
                                     <td>{{ $program->title ?? '' }}</td>
                                     <td>{{ $program->rating ?? '' }}</td>
                                     <td><p> {{ $program->expert->name ?? ''}}</p> </td>
+                                    <td>
+                                        <a href="{{ asset('uploads/'.$program->image_url) }}" target="_blank">
+                                            <img src="{{ asset('uploads/'.$program->image_url) }}" alt="Image" style="max-width: 70px; max-height: 70px;">
+                                        </a>
+                                    </td>
+
                                     <!-- <td>
                                        
                                         <a href="{{ asset('storage/'. $program->image_url) }}" target="_blank">
