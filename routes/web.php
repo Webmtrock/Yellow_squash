@@ -84,7 +84,11 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 
 //Article
     Route::resource('article', ArticleController::class);
+    Route::get('/article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
+    // Route::delete('article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
+    Route::delete('article/delete/{id}', [ArticleController::class, 'destroy'])->name('article.delete');
 
+    
 
     
    //experts

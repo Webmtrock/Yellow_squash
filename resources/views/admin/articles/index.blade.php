@@ -30,7 +30,6 @@
                         </a>
                     </div>
 
-
                     <div class="col-lg-10 col-md-10">
                         <div class="right-item d-flex justify-content-end">
 
@@ -92,10 +91,38 @@
                                         </tr>
                                     </thead>
                                     @foreach($articles as $article)
+
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{$article->category->title ?? ''}}</th>
-                                        <td>{{$article->category_id ?? ''}}</td>
+                                        <td>{{$article->article_title ?? ''}}</td>
+                                        <td>{{$article->summary ?? ''}}</td>
+                                        <td>{{$article->category->title ?? ''}}</td>
+                                        <td>{{$article->experts->name ?? ''}}</td>
+                                        <!-- <td>{{$article->banner_image ?? ''}}</td> -->
+                                        <td class="text-center">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <a href="{{ asset('uploads/'.$article->banner_image) }}"
+                                                    target="_blank">
+                                                    <img src="{{ asset('uploads/'.$article->banner_image) }}"
+                                                        alt="Image"
+                                                        style="max-width: 60px; max-height: 60px; border-radius: 50%;">
+                                                </a>
+                                            </div>
+                                        </td>
+
+
+                                        <td>
+                                            <a href="{{ route('article.edit', ['id' => $article->id]) }}"
+                                                class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+
+                                            <a href="{{ route('article.delete', $article->id) }}"
+                                                class="btn btn-danger btn-sm" data-toggle="modal"
+                                                data-target="#exampleModal{{ $article->id }}">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+
+                                        </td>
+
 
                                     </tr>
                                     @endforeach
@@ -109,5 +136,32 @@
     </div>
 
 
-
+    @foreach($articles as $article)
+    <div class="modal fade" id="exampleModal{{ $article->id }}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this Article?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Delete Form -->
+                    <form id="deleteForm{{ $article->id }}"
+                        action="{{ route('article.delete', ['id' => $article->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
     @endsection
