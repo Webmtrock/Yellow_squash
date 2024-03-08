@@ -18,21 +18,22 @@
         </script>
         @endsection
         @endif
+
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-header border-bottom h3">
-                        New Blog
-                        <!-- {{ isset($expert) && isset($expert->id) ? 'Edit Expert' : 'Create Expert' }} -->
+                        {{ isset($article) ? 'Edit Blog' : 'New Blog' }}
                     </div>
                     <div class="card-body">
-
-
-                        <form action="{{route('article.store') }}" method="POST" enctype="multipart/form-data"
-                            id="basic-form">
+                        <form action="{{ isset($data) ? route('article.update', $data->id) : route('article.store') }}"
+                            method="POST" enctype="multipart/form-data" id="basic-form">
 
                             @csrf
+                            @if(isset($data))
+                            @method('PUT')
+                            @endif
+
                             <!-- 
                             <input type="hidden" name="expert_category_id" id="id"
                                 value="{{ isset($data) ? $data->id : '' }}"> -->
@@ -43,14 +44,15 @@
                                         <label for="article_title" class="mt-2">Article Title <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="article_title"
-                                            class="form-control {{ $errors->has('article_title') ? 'is-invalid' : '' }}"
-                                            value="" required>
-                                        @if($errors->has('article_title'))
-                                        <span class="text-danger">{{ $errors->first('article_title') }}</span>
-                                        @endif
+                                            class="form-control @error('article_title') is-invalid @enderror"
+                                            value="{{ old('article_title') }}">
+                                        @error('article_title')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name" class="mt-2">Select Category <span
@@ -70,9 +72,12 @@
                                     <div class="form-group">
                                         <label for="name" class="mt-2"> Select Article Author <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" name="article_author"
-                                            class="form-control {{ $errors->has('article_author') ? 'is-invalid' : '' }}"
-                                            value="" required>
+                                        <select class="form-control" name="article_author">
+                                            <option value="">Select Author</option>
+                                            @foreach($experts as $expert)
+                                            <option value="{{ $expert->id }}">{{ $expert->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @if($errors->has('article_author'))
                                         <span class="text-danger">{{ $errors->first('article_author') }}</span>
                                         @endif
@@ -193,8 +198,8 @@
                             </div> -->
                                 <div class="flex items-center justify-between ">
                                     <button class="btn bg-warning " type="submit">Send For Approval</button>
-                                    <button class="btn bg-secondary text-white ml-3">Send For
-                                        Approval</button>
+                                    <button class="btn bg-secondary text-white ml-3">Save as
+                                        Draft</button>
                                     <button class="btn bg-danger text-white ml-auto">Cancel</button>
 
                                 </div>

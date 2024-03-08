@@ -22,6 +22,8 @@ class Expert extends Model
     {
         return $this->belongsTo(Category::class, 'expert_category_id');
     }
+ 
+
     
     
 }
