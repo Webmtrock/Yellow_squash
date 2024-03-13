@@ -28,9 +28,9 @@
                         <a href="{{route('article.create')}}" class="btn btn-warning btn btn-lg ml-2 text-dark">
                             Add Article
                         </a>
-                        <a href="{{route('article.draftedIndex')}}" class="btn bg-black text-white btn btn-lg">
+                        <!-- <a href="{{route('article.draftedIndex')}}" class="btn bg-black text-white btn btn-lg">
                             Drafted Article
-                        </a>
+                        </a> -->
                         <!-- <a href="{{ url('article.draft') }}" class="btn bg-black text-white btn-lg">
                             Drafted Article
                         </a> -->
@@ -47,7 +47,7 @@
                         <div class="card-header ">
                             <div class="row">
                                 <div class="col-xl-6 col-md-6 mt-auto">
-                                    <h5>New Blog</h5>
+                                    <h5>Drafted Article</h5>
                                 </div>
                                 <div class="col-xl-6 col-md-6">
                                     <div class="row float-end">
@@ -85,7 +85,7 @@
 
                         <div class="card-body">
                             <div class="table">
-                                <table id="datatable" class="table table-striped table-bordered">
+                                <table id="example" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
@@ -140,7 +140,6 @@
                                     </tr>
                                     @endforeach
                                 </table>
-
                             </div>
                         </div>
                     </div>

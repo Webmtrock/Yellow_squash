@@ -64,7 +64,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
     Route::delete('expert/{id}/delete', [ExpertController::class, 'destroy'])->name('expert.destroy');
 
-
 // Users 
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
@@ -87,21 +86,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/article/edit/{id}', [ArticleController::class, 'edit'])->name('article.edit');
     // Route::delete('article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
     Route::delete('article/delete/{id}', [ArticleController::class, 'destroy'])->name('article.delete');
-
-    
-
-    
-   //experts
-
-// Route::resource('/expert', ExpertController::class);
-// Route::post('/expert/create', [ExpertController::class, 'store'])->name('expert.store');
-// Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
-// Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
-// // Route::put('/experts/{expert}', 'ExpertController@update')->name('experts.update');
-// Route::delete('expert/{id}/delete', 'ExpertController@destroy')->name('expert.destroy');
-// Route::resource('roles', RolesController::class);
-//     Route::resource('permissions', PermissionsController::class);
-//     Route::resource('permissions', PermissionsController::class);
+    Route::put('/article/{id}', [ArticleController::class, 'update'])->name('article.update');
+    Route::get('/articles/drafted', [ArticleController::class, 'draftedIndex'])->name('article.draftedIndex');
 
     //programs
 
