@@ -52,7 +52,7 @@
     @include('admin.partials.header')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" style="max-width: 22%;">
                 @include('admin.partials.sidebar')
             </div>
             <div class="col-md-9">

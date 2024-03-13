@@ -49,37 +49,6 @@
                                 <div class="col-xl-6 col-md-6 mt-auto">
                                     <h5>Drafted Article</h5>
                                 </div>
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="row float-end">
-                                        <div class="col-xl-12 d-flex float-end">
-                                            <div class="items paginatee">
-                                                <select class="form-select m-0 items" name="items" id="items"
-                                                    aria-label="Default select example">
-                                                    <option value='10'
-                                                        {{ isset($items) ? ($items == '10' ? 'selected' : '' ) : '' }}>
-                                                        10
-                                                    </option>
-                                                    <option value='20'
-                                                        {{ isset($items) ? ($items == '20' ? 'selected' : '' ) : '' }}>
-                                                        20
-                                                    </option>
-                                                    <option value='30'
-                                                        {{ isset($items) ? ($items == '30' ? 'selected' : '' ) : '' }}>
-                                                        30
-                                                    </option>
-                                                    <option value='40'
-                                                        {{ isset($items) ? ($items == '40' ? 'selected' : '' ) : '' }}>
-                                                        40
-                                                    </option>
-                                                    <option value='50'
-                                                        {{ isset($items) ? ($items == '50' ? 'selected' : '' ) : '' }}>
-                                                        50
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -133,10 +102,7 @@
                                                 data-target="#exampleModal{{ $article->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
-
                                         </td>
-
-
                                     </tr>
                                     @endforeach
                                 </table>
