@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Programins;
 use App\Models\Expert;
+use App\Models\Plan;
 use App\Models\Category;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -30,44 +31,70 @@ class ProgramsController extends Controller
 
 
     public function saveProgram(Request $request, $id = null)
-{
-    $rules = [
-        'title' => 'required|string|max:255',
-        'rating' => 'required|integer|min:1|max:10',
-        'expert_id' => 'required|exists:experts,id',
-        'program_for' => 'required|string|max:255',
-        'whatsapp_group_url' => 'required|string|max:255',
-        'intake_from_link' => 'required|string|max:255',
-        'category_id' => 'required|string|max:255',
-        'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image upload
-    ];
+    {
+        $rules = [
+            'title' => 'required|string|max:255',
+            'rating' => 'required|integer|min:1|max:10',
+            'expert_id' => 'required|exists:experts,id',
+            'program_for' => 'required|string|max:255',
+            'whatsapp_group_url' => 'required|string|max:255',
+            'intake_from_link' => 'required|string|max:255',
+            'category_id' => 'required|string|max:255',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'programming_tovideo_url' => 'required|file|mimes:mp4,mov,ogg,qt|max:20000', 
+            'enroll_user' => 'required',
+            'program_description' => 'required',
+            'add_plans' => 'required|string', 
 
-    $request->validate($rules);
-
-    $program = $id ? Programins::findOrFail($id) : new Programins;
-
-    $program->title = $request->title;
-    $program->rating = $request->rating;
-    $program->expert_id = $request->expert_id; 
-    $program->program_for = $request->program_for;
-    $program->whatsapp_group_url = $request->whatsapp_group_url;
-    $program->intake_from_link = $request->intake_from_link;
-    $program->category_id = $request->category_id;
-
+        ];
     
-    if ($request->hasFile('image_url')) {
-        $image = $request->file('image_url');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move('uploads', $imageName); 
-        $program->image_url = $imageName; 
+        $request->validate($rules);
+    
+        $program = $id ? Programins::findOrFail($id) : new Programins;
+    
+        $program->title = $request->title;
+        $program->rating = $request->rating;
+        $program->expert_id = $request->expert_id; 
+        $program->program_for = $request->program_for;
+        $program->whatsapp_group_url = $request->whatsapp_group_url;
+        $program->intake_from_link = $request->intake_from_link;
+        $program->category_id = $request->category_id;
+        $program->enroll_user = $request->enroll_user;
+        $program->program_description = $request->program_description;
+        $program->add_plans = $request->add_plans;
+    
+        // Handle image upload
+        if ($request->hasFile('image_url')) {
+            $image = $request->file('image_url');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('uploads', $imageName); 
+            $program->image_url = $imageName; 
+        }
+    
+        // Handle video upload
+        if ($request->hasFile('programming_tovideo_url')) {
+            $video = $request->file('programming_tovideo_url');
+            $videoName = time() . '.' . $video->getClientOriginalExtension();
+            $video->move('uploads/videos', $videoName); 
+            $program->programming_tovideo_url = $videoName; 
+        }
+    
+        $program->save();
+        // if ($request->has('add_plans')) {
+        //     $plans = $request->add_plans;
+        //     foreach ($plans as $plan) {
+        //         if (!empty($plan)) {
+        //             Plan::create(['program_id' => $program->id, 'plan' => $plan]);
+        //         }
+        //     }
+        // }
+        
+    
+        $message = $id ? 'Program Updated successfully' : 'Program Added successfully';
+    
+        return redirect()->route('programs.index')->with('success', $message);
     }
-
-    $program->save();
-
-    $message = $id ? 'Program Updated successfully' : 'Program Added successfully';
-
-    return redirect()->route('programs.index')->with('success', $message);
-} 
+    
 
     public function edit($id)
     {
