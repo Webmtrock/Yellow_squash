@@ -86,17 +86,24 @@
                                             <th scope="col">Select Category</th>
                                             <th scope="col">Expert Name</th>
                                             <th scope="col">Expert Designation</th>
-                                            <th scope="col">Experience</th>
-                                            <th scope="col">Qualification</th>
-                                            <th scope="col">Expert Language</th>
-                                            <th scope="col">Expert D-escription</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
 
-                                    
+                                    @foreach($wibineruser as $key => $wibiner)
+                                <tr data-entry-id="{{ $wibiner->id }}">
+                                    <td>{{ $wibiner->id ?? '' }}</td>
+                                    <td>{{ $wibiner->title ?? '' }}</td>
+                                    <td><p> {{ $wibiner->expert->name ?? ''}}</p> </td>
+                                    <td>{{ $wibiner->description ?? '' }}</td>
+                                   
+                                    <td>
+                                        
+                                        
 
-
+                                    </td>
+                                </tr>
+                                @endforeach
                                 </table>
                             </div>
                         </div>

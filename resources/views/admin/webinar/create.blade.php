@@ -20,29 +20,27 @@
         @endif
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card">
                     <div class="card-header border-bottom h3">
                         Create webinar
                     </div>
                     <div class="card-body">
-
                         <form action="{{ route('webinars.store') }}" method="POST" enctype="multipart/form-data"id="basic-form">
                             @csrf
                             <input type="hidden" name="id" id="id"value="{{ isset($data) ? $data->id : '' }}">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    @if(!empty($data->webinarimage))
+                                    @if(!empty($data->profile_image))
                                         <div class="mt-3">
-                                            <span class="pip" data-title="{{$data->webinarimage}}">
-                                                <img src="{{ url(config('app.webinarimage')).'/'.$data->webinarimage ?? '' }}" alt="" width="150" height="100">
+                                            <span class="pip" data-title="{{$data->profile_image}}">
+                                                <img src="{{ url(config('app.profile_image')).'/'.$data->profile_image ?? '' }}" alt="" width="150" height="100">
                                             </span>
                                         </div>
                                     @endif
                                     <label for="name" class="mt-2"> Webinar Image <span class="text-danger info">(Only jpeg, png, jpg files allowed)</span></label>
-                                    <input type="file" name="webinarimage" class="form-control @error('WebinarImage') is-invalid @enderror" accept="image/jpeg,image/png">
-                                    <input type="hidden" class="form-control" name="WebinarImageOld" value="">
-                                    @error('WebinarImage')
+                                    <input type="file" name="profile_image" class="form-control @error('profile_image') is-invalid @enderror" accept="image/jpeg,image/png">
+                                    <input type="hidden" class="form-control" name="profile_imageOld" value="">
+                                    @error('profile_image')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
                                         </span>
@@ -61,9 +59,9 @@
 
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="webinardescription" class="mt-2"> Webinar Description <span class="text-danger">*</span></label>
-                                    <input type="text" name="webinardescription" class="form-control @error('webinardescription') is-invalid @enderror" placeholder=" Webinar Description" value="{{ old('webinardescription', isset($data) ? $data->webinardescription : '') }}" required>
-                                    @error('webinardescription')
+                                    <label for="description" class="mt-2"> Webinar Description <span class="text-danger">*</span></label>
+                                    <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" placeholder=" Webinar Description" value="{{ old('description', isset($data) ? $data->description : '') }}" required>
+                                    @error('description')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
                                         </span>
@@ -71,7 +69,7 @@
                                 </div>
                                 <div class="form-group col-md-6"> 
                                     <label for="title" class="mt-2">Webinar Title <span class="text-danger">*</span></label>
-                                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Webinar Title" value="{{ old('title', isset($data) ? $data->title : '') }}" required>
+                                    <input type="text" name="title1" class="form-control @error('title') is-invalid @enderror" placeholder="Webinar Title" value="{{ old('title', isset($data) ? $data->title : '') }}" required>
                                     @error('title')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
@@ -114,8 +112,8 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="date" class="mt-2"> Webinar Start Date <span class="text-danger">*</span></label>
-                                    <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder=" Webinar Description" value="{{ old('date', isset($data) ? $data->date : '') }}" required>
-                                    @error('date')
+                                    <input type="date" name="webinar_start_date" class="form-control @error('webinar_start_date') is-invalid @enderror" placeholder=" Webinar Description" value="{{ old('webinar_start_date', isset($data) ? $data->webinar_start_date : '') }}" required>
+                                    @error('webinar_start_date')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
                                         </span>
@@ -123,7 +121,7 @@
                                 </div>
                                 <div class="form-group col-md-6 mt-auto">
                                     <label for="name" class="mt-2">On Which Day <span class="text-danger">*</span></label>
-                                        <select class="form-control" id="selectExpert" name="week_id">
+                                        <select class="form-control" id="selectExpert" name="day">
                                         <option value="">Select Day</option>
                                             @foreach($weeks as $week)
                                             <option value="{{ $week->id }}">{{ $week->name }}</option>
@@ -133,9 +131,9 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="duration_in_minutes" class="mt-2"> Duration in minutes <span class="text-danger">*</span></label>
-                                    <input type="text" name="duration_in_minutes" class="form-control @error('duration_in_minutes') is-invalid @enderror" placeholder="Example:- 120 Min" value="{{ old('duration_in_minutes', isset($data) ? $data->duration_in_minutes : '') }}" required>
-                                    @error('duration_in_minutes')
+                                    <label for="duration" class="mt-2"> Duration in minutes <span class="text-danger">*</span></label>
+                                    <input type="text" name="duration" class="form-control @error('duration') is-invalid @enderror" placeholder="Example:- 120 Min" value="{{ old('duration', isset($data) ? $data->duration : '') }}" required>
+                                    @error('duration')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
                                         </span>
@@ -173,9 +171,9 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="whatsapp_group_link" class="mt-2"> Whatsapp group link <span class="text-danger">*</span></label>
-                                    <input type="text" name="whatsapp_group_link" class="form-control @error('whatsapp_group_link') is-invalid @enderror" placeholder=" Webinar Price" value="{{ old('whatsapp_group_link', isset($data) ? $data->whatsapp_group_link : '') }}" required>
-                                    @error('whatsapp_group_link')
+                                    <label for="whatsapp_link" class="mt-2"> Whatsapp group link <span class="text-danger">*</span></label>
+                                    <input type="text" name="whatsapp_link" class="form-control @error('whatsapp_link') is-invalid @enderror" placeholder=" Webinar Price" value="{{ old('whatsapp_link', isset($data) ? $data->whatsapp_link : '') }}" required>
+                                    @error('whatsapp_link')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
                                         </span>
@@ -184,18 +182,19 @@
                             </div>
 
 
+
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="session_will_cover" class="mt-2">Session Will Cover<span class="text-danger">*</span></label>
                                     <div>Heading</div>
-                                    <input type="text" name="heading" class="form-control @error('heading') is-invalid @enderror" placeholder=" " value="{{ old('heading', isset($data) ? $data->heading : '') }}" required>
+                                    <input type="text" name="heading[]" class="form-control @error('heading') is-invalid @enderror" placeholder=" " value="{{ old('heading', isset($data) ? $data->heading : '') }}" required>
                                     @error('heading')
                                     <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                         {{ $message }}
                                     </span>
                                     @enderror
                                     <div>Defination</div>  
-                                    <input type="text" name="defination" class="form-control mb-4 @error('defination') is-invalid @enderror" placeholder=" " value="{{ old('defination', isset($data) ? $data->defination : '') }}" required>
+                                    <input type="text" name="defination[]" class="form-control mb-4 @error('defination') is-invalid @enderror" placeholder=" " value="{{ old('defination', isset($data) ? $data->defination : '') }}" required>
                                     @error('defination')
                                         <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                             {{ $message }}
@@ -210,10 +209,12 @@
                                 </div>
                             </div>
 
+
+
                              <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="you_Will_learn_input" class="mt-2">You Will Learn<span class="text-danger">*</span></label>
-                                    <input type="text" id="you_Will_learn_input" name="you_Will_learn" class="form-control @error('you_Will_learn') is-invalid @enderror" placeholder=" " value="{{ old('you_Will_learn', isset($data) ? $data->you_Will_learn : '') }}" required>
+                                    <input type="text" id="you_Will_learn_input" name="title" class="form-control @error('you_Will_learn') is-invalid @enderror" placeholder=" " value="{{ old('you_Will_learn', isset($data) ? $data->you_Will_learn : '') }}" required>
                                     @error('you_Will_learn')
                                     <span class="invalid-feedback form-invalid fw-bold" role="alert">
                                         {{ $message }}
@@ -273,11 +274,11 @@
                     '</div>' +
                     '<div class="form-group col-md-12">' +
                     '<label for="heading" class="mt-2">Heading</label>' +
-                    '<input type="text" class="form-control m-input heading-input">' +
+                    '<input type="text" name="heading[]" class="form-control m-input heading-input">' +
                     '</div>' +
                     '<div class="form-group col-md-12">' +
                     '<label for="definition" class="mt-2">Definition</label>' +
-                    '<input type="text" class="form-control m-input definition-input">' +
+                    '<input type="text" name="defination[]" class="form-control m-input definition-input">' +
                     '</div>' +
                     '</div>' +
                 
@@ -288,6 +289,9 @@
             {
                 $(this).closest(".rowWrapper").remove();
             });
+
+
+
 
             $(document).ready(function()
             {

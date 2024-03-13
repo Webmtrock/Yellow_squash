@@ -57,11 +57,11 @@
                     @enderror
                 </div> -->
 
-<<<<<<< Updated upstream
+
                 <!--  <div class="form-group mb-2">
-=======
+
                 <div class="form-group mb-2">
->>>>>>> Stashed changes
+
                     <label>Program Image <span class="text-danger">*</span></label>
                     <input type="file" class="form-control-file @error('image_url') is-invalid @enderror" name="image_url">
                     @error('image_url')
@@ -102,7 +102,7 @@
                     </span>
                     @enderror
                 </div>
-                <!-- <div class="form-group mb-2">
+                <div class="form-group mb-2">
                     <label>Enrolled User's <span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('enrolled_user_input') is-invalid @enderror" name="enrolled_user_input">
                     @error('enrolled_user_input')
@@ -213,7 +213,7 @@
 </div>
 @endsection
 
-<<<<<<< Updated upstream
+
                 <!-- Add other fields like Whatsapp Group Url, Intake Form Link, Select Category, Enrolled Users -->
 
                 <input type="submit" value="Submit" class="btn btn-success">
@@ -222,5 +222,4 @@
     </body>
 </div>
 @endsection
-=======
->>>>>>> Stashed changes
+

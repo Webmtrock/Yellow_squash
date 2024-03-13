@@ -11,12 +11,10 @@ data-menu-styles="light" data-toggled="close">
     <title>Yellow</title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
-<<<<<<< Updated upstream
+
     <meta name="keywords" content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
-=======
-    <meta name="keywords"
-    content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
->>>>>>> Stashed changes
+
+   
 
     
     <link id="style" href="{{ asset('admin/assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -50,8 +48,8 @@ data-menu-styles="light" data-toggled="close">
 </head>
 
 <body>
-    @include('admin.partials.header')
     <div class="container-fluid">
+       
         <div class="row">
             <div class="col-md-3">
                 @include('admin.partials.sidebar')
@@ -62,8 +60,9 @@ data-menu-styles="light" data-toggled="close">
         </div>
         @include('admin.partials.footer')
     </div>
-    <!-- Popper JS -->
-    <!-- <script src="lib{{ asset('admin/assets/s/choices.js/public/assets/scripts/choices.min.js') }}"></script> -->
+
+     
+   
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -77,16 +76,6 @@ data-menu-styles="light" data-toggled="close">
     <script src="{{ asset('admin/assets/js/index.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom-switcher.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
-<<<<<<< Updated upstream
-=======
-    <script src="{{ asset('admin/assets/js/planjquery.js') }}"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
->>>>>>> Stashed changes
-
-
-
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- Include Select2 JavaScript -->
@@ -97,14 +86,9 @@ data-menu-styles="light" data-toggled="close">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     
-    <!-- <script>
+  <!-- <script>
     $(document).ready(function() {
         $('.select2').select2();
     });
-<<<<<<< Updated upstream
-    </script> -->
-    
-=======
 </script> -->
->>>>>>> Stashed changes
 </body>

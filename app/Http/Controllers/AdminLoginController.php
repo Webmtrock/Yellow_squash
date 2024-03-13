@@ -23,8 +23,6 @@ class AdminLoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-         
-        
         if (Auth::attempt($credentials)) {
            
             return redirect()->route('admin/dashboard')->with('success', 'Welcome to the dashboard!');
@@ -35,22 +33,19 @@ class AdminLoginController extends Controller
 
     }
     public function store(Request $request)
-    {    
-       
-            $validatedData = $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|string|min:6',
-            
-            ]);
+    { 
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+        ]);
 
-            $user = new User();
-            $user->name = $validatedData['name'];
-            $user->email = $validatedData['email'];
-            $user->password = bcrypt($validatedData['password']); 
-            $user->save();
-            return redirect()->route('admin/register')->with('success', 'User registered successfully.');
-
+        $user = new User();
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = bcrypt($validatedData['password']);
+        $user->save();
+        return redirect()->route('admin/register')->with('success', 'User registered successfully.');
        
     }
 
