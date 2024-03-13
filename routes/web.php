@@ -32,7 +32,7 @@ Route::get('/', function () {
 // Backend Routes 
 Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
 Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
-Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
+// Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
 Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
 Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
 Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');

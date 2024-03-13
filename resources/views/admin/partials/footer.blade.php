@@ -11,4 +11,9 @@
                 </span>
             </div>
         </footer>
+        <script>
+            $(document).ready(function() {
+                $('#datatable').DataTable();
+            });
+        </script>
         <!-- Footer End -->

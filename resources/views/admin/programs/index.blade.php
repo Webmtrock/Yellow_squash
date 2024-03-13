@@ -95,7 +95,7 @@
 
                     <div class="card-body">
                         <div class="table">
-                            <table id="example" class="table table-striped table-bordered">
+                            <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th class="width-10">S No.</th>
@@ -122,18 +122,6 @@
                                             <img src="{{ asset('uploads/'.$program->image_url) }}" alt="Image" style="max-width: 70px; max-height: 70px;">
                                         </a>
                                     </td>
-
-                                    <!-- <td>
-                                       
-                                        <a href="{{ asset('storage/'. $program->image_url) }}" target="_blank">
-                                            <img src="{{ asset('storage/' . $program->image_url) }}" alt="Product Image" style="max-width: 70px; max-height: 70px;">
-                                        </a>
-                                     
-                                        <a href="{{ asset('storage/'.$program->image_url) }}" target="_blank">
-                                            <img src="{{ asset('storage/' . $program->image_url) }}" alt="Product Image" style="max-width: 70px; max-height: 70px;">
-                                        </a>
-                                      
-                                    </td> -->
                                     <td><p>{{ $program->category->title }}</p></td>
                                     <td>{{ $program->program_for ?? '' }}</td>
                                     <td>
@@ -153,7 +141,6 @@
         </div>
     </div>
 </div>
-
 @endsection
 @foreach ($programs as $program)
 <div class="modal fade" id="exampleModal{{ $program->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
