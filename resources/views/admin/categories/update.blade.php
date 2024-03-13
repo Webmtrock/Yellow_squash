@@ -6,6 +6,9 @@
 </div>
 <div class="content-wrapper">
     <body>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
         <div class="container mt-3 mb-3">
             <form action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -30,6 +33,9 @@
                 <input type="submit" value="Update" class="btn btn-primary">
             </form>
         </div>
+    </div>
+</div>
+</div>
     </body>
 
     </html>

@@ -25,9 +25,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row tabelhed d-flex justify-content-between">
-                    <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
+                    {{-- <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
                         <a href="{{ route('programs.create') }}" class="btn btn-primary btn-lg float-left">Add Program</a>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-10 col-md-10"> 
 
@@ -74,7 +74,8 @@
                             <div class="col-xl-6 col-md-6">
                                 <div class="row float-end">
                                     <div class="col-xl-12 d-flex float-end">
-                                        <div class="items paginatee">
+                                        <a href="{{ route('programs.create') }}" class="btn btn-primary btn-lg float-left">Add Program</a>
+                                        {{-- <div class="items paginatee">
                                             <form action="" method="GET">
                                                 <select class="form-select m-0 items" name="items" id="items" aria-label="Default select example">
                                                     <option value='10' {{ isset($items) ? ($items == '10' ? 'selected' : '' ) : '' }}>10</option>
@@ -86,7 +87,7 @@
 
                                                 @if(isset($_GET['keyword']))<input type="hidden" name="keyword" value="{{$_GET['keyword']}}">@endif
                                             </form>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -125,8 +126,8 @@
                                     <td><p>{{ $program->category->title }}</p></td>
                                     <td>{{ $program->program_for ?? '' }}</td>
                                     <td>
-                                        <a href="{{ route('programs.edit', ['id' => $program->id]) }}" class="btn btn-primary">Edit</a>
-                                        <a href="{{ route('programs.delete', ['id' => $program->id]) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $program->id }}">Delete</a>
+                                        <a href="{{ route('programs.edit', ['id' => $program->id]) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="{{ route('programs.delete', ['id' => $program->id]) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $program->id }}"><i class="fas fa-trash-alt"></i></a>
 
                                     </td>
                                 </tr>

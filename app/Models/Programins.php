@@ -25,6 +25,12 @@ class Programins extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function plans()
+    {
+        return $this->hasMany(Plan::class);
+    }
+    
+    
     public function expert()
     {
         return $this->belongsTo(Expert::class);

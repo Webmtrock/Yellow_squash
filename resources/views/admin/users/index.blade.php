@@ -25,9 +25,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row tabelhed d-flex justify-content-between">
-                    <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
+                    {{-- <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
                             <a href="{{ route('users.create') }}" class="btn btn-primary btn-lg float-left">Add User</a>
-                    </div>
+                    </div> --}}
 
                     <div class="col-lg-10 col-md-10"> 
 
@@ -74,7 +74,8 @@
                             <div class="col-xl-6 col-md-6">
                                 <div class="row float-end">
                                     <div class="col-xl-12 d-flex float-end">
-                                        <div class="items paginatee">
+                                        <a href="{{ route('users.create') }}" class="btn btn-primary btn-lg float-left">Add User</a>
+                                        {{-- <div class="items paginatee">
                                             <form action="" method="GET">
                                                 <select class="form-select m-0 items" name="items" id="items" aria-label="Default select example">
                                                     <option value='10' {{ isset($items) ? ($items == '10' ? 'selected' : '' ) : '' }}>10</option>
@@ -86,7 +87,7 @@
 
                                                 @if(isset($_GET['keyword']))<input type="hidden" name="keyword" value="{{$_GET['keyword']}}">@endif
                                             </form>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +96,7 @@
 
                     <div class="card-body">
                         <div class="table">
-                            <table id="example" class="table table-striped table-bordered">
+                            <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th class="width-10">S No.</th>
@@ -121,8 +122,8 @@
                                             </span>
                                         </td>
                                             <td>
-                                            <a href="{{ route('users.edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('users.delete', ['id' => $user->id]) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $user->id }}">Delete</a>
+                                            <a href="{{ route('users.edit', ['id' => $user->id]) }}" class="btn btn-primary"> <i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{ route('users.delete', ['id' => $user->id]) }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $user->id }}"><i class="fas fa-trash-alt"></i></a>
 
                                         </td>
                                         </tr>

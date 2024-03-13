@@ -38,7 +38,6 @@ class ProgramsController extends Controller
             'expert_id' => 'required|exists:experts,id',
             'program_for' => 'required|string|max:255',
             'whatsapp_group_url' => 'required|string|max:255',
-            'intake_from_link' => 'required|string|max:255',
             'category_id' => 'required|string|max:255',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'programming_tovideo_url' => 'required|file|mimes:mp4,mov,ogg,qt|max:20000', 
@@ -57,7 +56,6 @@ class ProgramsController extends Controller
         $program->expert_id = $request->expert_id; 
         $program->program_for = $request->program_for;
         $program->whatsapp_group_url = $request->whatsapp_group_url;
-        $program->intake_from_link = $request->intake_from_link;
         $program->category_id = $request->category_id;
         $program->enroll_user = $request->enroll_user;
         $program->program_description = $request->program_description;
@@ -78,17 +76,18 @@ class ProgramsController extends Controller
             $video->move('uploads/videos', $videoName); 
             $program->programming_tovideo_url = $videoName; 
         }
-    
-        $program->save();
-        // if ($request->has('add_plans')) {
-        //     $plans = $request->add_plans;
-        //     foreach ($plans as $plan) {
-        //         if (!empty($plan)) {
-        //             Plan::create(['program_id' => $program->id, 'plan' => $plan]);
-        //         }
-        //     }
-        // }
-        
+    if ($request->has('add_plans')) {
+    $addPlans = $request->input('add_plans');
+
+    if (is_array($addPlans)) {
+        foreach ($addPlans as $planText) {
+            $plan = Plan::create(['title' => $planText]);
+            $program->plans()->save($plan);
+        }
+    } else {
+    }
+}
+     $program->save();
     
         $message = $id ? 'Program Updated successfully' : 'Program Added successfully';
     

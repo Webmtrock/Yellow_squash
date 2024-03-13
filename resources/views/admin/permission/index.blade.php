@@ -22,14 +22,14 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="row tabelhed d-flex justify-content-between">
+                {{-- <div class="row tabelhed d-flex justify-content-between">
                     <div class="ms-auto pageheader-btn">
                         <a href="{{ route('permissions.create') }}"
                             class="btn btn-primary btn-wave waves-effect waves-light me-2">
                             <i class="fe fe-plus mx-1 align-middle"></i>Create Permission
                         </a>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- <div class="row tabelhed d-flex justify-content-between">
                     <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
@@ -63,7 +63,11 @@
                             <div class="col-xl-6 col-md-6">
                                 <div class="row float-end">
                                     <div class="col-xl-12 d-flex float-end">
-                                        <div class="items paginatee">
+                                        <a href="{{ route('permissions.create') }}"
+                                        class="btn btn-primary btn-wave waves-effect waves-light me-2">
+                                        <i class="fe fe-plus mx-1 align-middle"></i>Create Permission
+                                    </a>
+                                        {{-- <div class="items paginatee">
                                             <form action="" method="GET">
                                                 <select class="form-select m-0 items" name="items" id="items"
                                                     aria-label="Default select example">
@@ -87,7 +91,7 @@
                                                 @if(isset($_GET['keyword']))<input type="hidden" name="keyword"
                                                     value="{{$_GET['keyword']}}">@endif
                                             </form>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +99,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table">
-                            <table id="example" class="table table-striped table-bordered">
+                            <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th class="width-10">S No.</th>
