@@ -18,6 +18,7 @@ class Programins extends Model
         'whatsapp_group_url',
         'intake_from_link',
         'category_id',
+        'add_plans'
     ];
 
     public function category()

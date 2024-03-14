@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div style="text-align: center;">
-        <h1>Add New Program</h1>
-        <a href="{{ route('programs.index') }}" class="btn btn-danger btn-lg float-right">Back</a>
-    </div>
-    <div class="content-wrapper">
-
+<div style="text-align: center;">
+    <h1>Add New Program</h1>
+    <a href="{{ route('programs.index') }}" class="btn btn-danger btn-lg float-right">Back</a>
+</div>
+<div class="content-wrapper">
         <body>
             <div class="row">
                 <div class="col-lg-12">
@@ -104,7 +103,17 @@
                                         </span>
                                     @enderror
                                 </div>
-
+                                <div class="form-group mb-2">
+                                    <label>Intake Form Link <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control @error('intake_from_link') is-invalid @enderror"
+                                        name="intake_from_link">
+                                    @error('intake_from_link')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                
 
                                 <div class="form-group mb-2">
                                     <label>Enrolled User's <span class="text-danger">*</span></label>
@@ -141,14 +150,15 @@
                                             <label>Plan 1</label>
                                         </div>
                                         <label>Enter Plan</label>
-                                        <input type="text" class="form-control" name="add_plans">
+                                        <input type="text" class="form-control" name="add_plans[0]['add_plans']">
                                     </div>
                                 </div>
 
                                 <!-- Add Plan End -->
 
 
-                                {{-- <!-- Add Plan Type Start -->
+
+                            {{-- <!-- Add Plan Type Start -->
                     <button type="button" id="addPlanType" class="btn btn-warning text-black">AddPlanType+</button>
                     <div id="planTypeFields">
                         <div class="form-group mb-2 plan-group">
@@ -234,4 +244,8 @@
             </div>
         </body>
     </div>
-@endsection
+    @endsection
+    
+    
+    
+

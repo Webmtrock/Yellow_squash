@@ -11,10 +11,10 @@
     <title>Yellow</title>
     <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
     <meta name="Author" content="Spruko Technologies Private Limited">
-
     <meta name="keywords"
         content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
-
+    <meta name="keywords"
+        content="bootstrap template, template dashboard bootstrap, admin template, html admin panel template, bootstrap admin template, html and css templates, bootstrap, bootstrap html template, html admin dashboard template, bootstrap dashboard, admin panel html template">
 
 
     <link id="style" href="{{ asset('admin/assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,15 +43,20 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-...your-sha-here..." crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
+
 </head>
 
 <body>
-    @include('admin.partials.header')
     <div class="container-fluid">
+
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" style="max-width: 22%;">
                 @include('admin.partials.sidebar')
             </div>
             <div class="col-md-9">
@@ -61,7 +66,7 @@
         @include('admin.partials.footer')
     </div>
     <!-- Popper JS -->
-    <script src="lib{{ asset('admin/assets/s/choices.js/public/assets/scripts/choices.min.js') }}"></script>
+    <!-- <script src="lib{{ asset('admin/assets/s/choices.js/public/assets/scripts/choices.min.js') }}"></script> -->
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -77,6 +82,12 @@
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
     <script src="{{ asset('admin/assets/js/planjquery.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- Include Select2 JavaScript -->
@@ -86,7 +97,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
     <script>
@@ -95,12 +105,11 @@
             .catch(error => {
                 console.error(error);
             });
-        </script>
+    </script>
     <script>
         $(document).ready(function() {
             $('.select2').select2();
         });
     </script>
-
-
+    </script>
 </body>

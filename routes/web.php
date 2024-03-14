@@ -41,17 +41,7 @@ Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/log
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
 
-//  //login-Register
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::get('/login', [AdminLoginController::class, 'index'])->name('admin/login');
-//     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin/getlogin');
-//     Route::get('/dashboard', [AdminLoginController::class, 'dashboard'])->name('admin/dashboard');
-//     Route::get('/register', [AdminLoginController::class, 'registerindex'])->name('admin/register');
-//     Route::post('/register', [AdminLoginController::class, 'store'])->name('admin/store');
-//     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
-//     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin/logout');
 
-// });
 //role and permission
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
@@ -63,7 +53,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route ::get('expert/{id}/edit',[ExpertController::class, 'edit']);
     Route ::put('/expert/{id}/update',[ExpertController::class, 'update'])->name('expert.update');
     Route::delete('expert/{id}/delete', [ExpertController::class, 'destroy'])->name('expert.destroy');
-
 
 // Users 
 

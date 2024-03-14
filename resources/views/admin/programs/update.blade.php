@@ -125,7 +125,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-2">
+                             <div class="form-group mb-2">
                                 <label>Intake Form Link <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('intake_from_link') is-invalid @enderror"
                                     name="intake_from_link" value="{{ $program->intake_from_link }}">
@@ -134,7 +134,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> 
                             <div class="form-group mb-2">
                                 <label>Enrolled User's <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control @error('enroll_user') is-invalid @enderror"

@@ -32,6 +32,7 @@ class ProgramsController extends Controller
 
     public function saveProgram(Request $request, $id = null)
     {
+        
         $rules = [
             'title' => 'required|string|max:255',
             'rating' => 'required|integer|min:1|max:10',
@@ -43,7 +44,7 @@ class ProgramsController extends Controller
             'programming_tovideo_url' => 'required|file|mimes:mp4,mov,ogg,qt|max:20000', 
             'enroll_user' => 'required',
             'program_description' => 'required',
-            'add_plans' => 'required|string', 
+            'intake_from_link' => 'required|string',
 
         ];
     
@@ -59,8 +60,9 @@ class ProgramsController extends Controller
         $program->category_id = $request->category_id;
         $program->enroll_user = $request->enroll_user;
         $program->program_description = $request->program_description;
+        $program->intake_from_link = $request->intake_from_link;
         $program->add_plans = $request->add_plans;
-    
+
         // Handle image upload
         if ($request->hasFile('image_url')) {
             $image = $request->file('image_url');
@@ -76,24 +78,32 @@ class ProgramsController extends Controller
             $video->move('uploads/videos', $videoName); 
             $program->programming_tovideo_url = $videoName; 
         }
-    if ($request->has('add_plans')) {
-    $addPlans = $request->input('add_plans');
-
-    if (is_array($addPlans)) {
-        foreach ($addPlans as $planText) {
-            $plan = Plan::create(['title' => $planText]);
-            $program->plans()->save($plan);
+        
+        if ($request->has('add_plans')) {
+            $addPlans = $request->input('add_plans');
+            if (is_array($addPlans)) {
+                foreach($addPlans as $planData) {
+                    
+                    Plan::create($planData);
+                }
+                $program->add_plans = json_encode($addPlans);
+            } else {
+                $program->add_plans = $addPlans; 
+            }
+        } else {
+            $program->add_plans = null; // or any other appropriate action
         }
-    } else {
-    }
-}
-     $program->save();
+        
+        
+        
+
+            $program->save();
     
         $message = $id ? 'Program Updated successfully' : 'Program Added successfully';
     
         return redirect()->route('programs.index')->with('success', $message);
     }
-    
+
 
     public function edit($id)
     {

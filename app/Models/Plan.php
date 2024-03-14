@@ -9,13 +9,13 @@ class Plan extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
-        'program_id',
+        'add_plans',
+        'programins_id',
     ];
 
     public function program()
     {
-        return $this->belongsTo(Programins::class);
+        return $this->belongsTo(Programins::class, 'programins_id'); // Specify the correct foreign key column
     }
 
 

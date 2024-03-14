@@ -17,7 +17,7 @@ class Article extends Model
         'meta_description',
         'banner_image',
         'expert_id',
-        // 'article_body',
+        'article_body',
         'is_draft',
     ];
     public function category()
